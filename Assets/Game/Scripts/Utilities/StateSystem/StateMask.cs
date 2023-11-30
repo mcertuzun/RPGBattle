@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
+using Game.Scripts.Utilities.UI;
 
-namespace Game.Scripts.Utilities.UI
+namespace Game.Scripts.Utilities.StateSystem
 {
     [Serializable]
     public class StateMask
     {
-        public List<GameState> gameStates = new();
+        public List<UIState> gameStates = new();
 
-        public bool GamesStateContains(GameState gameState)
+        public bool GamesStateContains(UIState uiState)
         {
-            return gameStates.Contains(gameState);
+            return gameStates.Contains(uiState);
         }
     }
 }

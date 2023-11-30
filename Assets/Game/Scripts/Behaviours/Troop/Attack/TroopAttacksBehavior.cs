@@ -41,5 +41,10 @@ namespace Game.Scripts.Behaviours.Troop
                 attacks[i].StartAttackCooldown();
             }
         }
+
+        public void StopAllAttacks()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

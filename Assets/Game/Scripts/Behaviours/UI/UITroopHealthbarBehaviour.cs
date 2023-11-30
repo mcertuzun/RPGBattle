@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.Scripts.Behaviours.Troop;
+using UnityEngine;
 
 namespace Game.Scripts.Behaviours.UI
 {
@@ -6,22 +7,22 @@ namespace Game.Scripts.Behaviours.UI
     {
         [Header("Unit Health")] public TroopHealthBehaviour healthBehaviour;
 
-        [Header("UI References")] public UISliderBehaviour healthSlider;
+        [Header("UI References")] public UIImageBehaviour healthSlider;
 
-        void OnEnable() => healthBehaviour.HealthChangedEvent += UpdateHealthDisplay;
-        void OnDisable() => healthBehaviour.HealthChangedEvent -= UpdateHealthDisplay;
-        void Start() => SetupHealthDisplay();
+        private void OnEnable() => healthBehaviour.HealthChangedEvent += UpdateHealthDisplay;
+        private void OnDisable() => healthBehaviour.HealthChangedEvent -= UpdateHealthDisplay;
+        private void Start() => SetupHealthDisplay();
 
-        void SetupHealthDisplay()
+        private void SetupHealthDisplay()
         {
             int totalHealth = healthBehaviour.GetCurrentHealth();
             healthSlider.SetupDisplay((float)totalHealth);
             UpdateHealthDisplay(totalHealth);
         }
 
-        private void UpdateHealthDisplay(int newhealthamount)
+        private void UpdateHealthDisplay(int newHealthAmount)
         {
-            healthSlider.SetCurrentValue(newhealthamount);
+            healthSlider.SetCurrentValue(newHealthAmount);
         }
     }
 }

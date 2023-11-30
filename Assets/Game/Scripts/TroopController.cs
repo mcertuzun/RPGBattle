@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Game.Scripts.Behaviours;
 using Game.Scripts.Behaviours.Troop;
 using Game.Scripts.Data;
@@ -13,21 +15,54 @@ namespace Game.Scripts
     {
         [Header("Data")] public TroopData data;
 
-        [Header("Health Settings")] public TroopHealthBehaviour healthBehaviour;
+        [Header("Health Settings")] [SerializeField]
+        public TroopHealthBehaviour healthBehaviour;
 
-        [Header("Target Settings")] public TroopTargetBehaviour targetsBehaviour;
+        [Header("Target Settings")] [SerializeField]
+        private TroopTargetBehaviour targetsBehaviour;
 
-        [Header("Attack Settings")] public TroopAttacksBehavior attacksBehaviour;
+        [Header("Attack Settings")] [SerializeField]
+        private TroopAttacksBehavior attacksBehaviour;
 
         public delegate void UnitDiedEventHandler(TroopController unit);
 
         public event UnitDiedEventHandler UnitDiedEvent;
+        [Header("Debug")] public bool initializeOnStart;
+
+        private void Start()
+        {
+            if (initializeOnStart)
+            {
+                SetHealth();
+                BattleStarted();
+            }
+        }
+
+        public void BattleStarted()
+        {
+            attacksBehaviour.StartAttackCooldowns();
+        }
+        
+        public void BattleEnded()
+        {
+            attacksBehaviour.StopAllAttacks();
+        }
+        
+        private void SetHealth() => healthBehaviour.SetupCurrentHealth(data.health);
 
         public void SetTroopData()
         {
+            throw new NotImplementedException();
         }
 
-        public void SetHealth() => healthBehaviour.SetupCurrentHealth(data.health);
+        #region TargetTroops
+        public void AssignTargetTroops(List<TroopController> aliveTroop) => targetsBehaviour.AddTargetUnits(aliveTroop);
         public void RemoveTargetUnit(TroopController unit) => targetsBehaviour.RemoveTargetUnit(unit);
+        #endregion
+
+        protected virtual void OnUnitDiedEvent(TroopController unit)
+        {
+            UnitDiedEvent?.Invoke(unit);
+        }
     }
 }

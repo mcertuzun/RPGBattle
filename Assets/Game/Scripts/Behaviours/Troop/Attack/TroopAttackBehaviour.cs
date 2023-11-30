@@ -22,7 +22,6 @@ namespace Game.Scripts.Behaviours.Troop
         [ReadOnly] [SerializeField] public bool attackReady;
 
         public delegate void AttackReadyEventHandler();
-
         public event AttackReadyEventHandler AttackReadyEvent;
 
         [Header("Events")] public UnityEvent<int> attackReadyForQueue;

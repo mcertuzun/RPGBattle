@@ -1,15 +1,16 @@
 using System;
+using Game.Scripts.Utilities.UI;
 using UnityEngine;
 
-namespace Game.Scripts.Utilities.UI
+namespace Game.Scripts.Utilities.StateSystem
 {
-    public class StateManager 
+    public class StateManager : MonoBehaviour
     {
         private static StateManager _stateManager;
-        [SerializeField] private GameState currentState;
-        public static event Action<GameState> OnStateChange;
+        [SerializeField] private UIState currentState;
+        public static event Action<UIState> OnStateChange;
 
-        public static GameState GetState()
+        public static UIState GetState()
         {
             if (_stateManager == null)
             {
@@ -19,15 +20,15 @@ namespace Game.Scripts.Utilities.UI
             return _stateManager.currentState;
         }
 
-        public static void SetState(GameState gameState)
+        public static void SetState(UIState uiState)
         {
             if (_stateManager == null)
             {
                 _stateManager = new StateManager();
             }
 
-            _stateManager.currentState = gameState;
-            OnStateChange?.Invoke(gameState);
+            _stateManager.currentState = uiState;
+            OnStateChange?.Invoke(uiState);
         }
     }
 }

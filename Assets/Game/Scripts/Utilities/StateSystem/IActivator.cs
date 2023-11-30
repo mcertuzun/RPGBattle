@@ -1,4 +1,4 @@
-namespace Game.Scripts.Utilities.UI
+namespace Game.Scripts.Utilities.StateSystem
 {
     public interface IActivator
     {

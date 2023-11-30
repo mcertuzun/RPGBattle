@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Game.Scripts.Behaviours
 {
@@ -42,6 +44,11 @@ namespace Game.Scripts.Behaviours
                     int randomUnit = Random.Range(0, targetTroops.Count);
                     filteredUnits.Add(targetTroops[randomUnit]);
                     break;
+                case TargetType.Order:
+                    //Maybe later.. Check it according to the case count
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(targetType), targetType, null);
             }
 
             return filteredUnits;

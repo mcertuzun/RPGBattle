@@ -5,8 +5,9 @@ namespace Game.Scripts.Behaviours.UI
 {
     public class UIImageBehaviour : MonoBehaviour
     {
-        [Header("UI References")] public Slider slider;
+        [Header("UI References")] public Image slider;
         public UITextBehaviour textSliderDisplay;
+        private int maxHealth;
 
         public void SetupDisplay(float totalValue)
         {
@@ -15,20 +16,21 @@ namespace Game.Scripts.Behaviours.UI
 
         void SetMaxValue(float newValue)
         {
-            slider.maxValue = newValue;
+            slider.fillAmount = newValue;
+            maxHealth = (int)newValue;
         }
 
         public void SetCurrentValue(float newValue)
         {
-            slider.value = newValue;
+            slider.fillAmount = newValue;
             SetTextDisplay();
         }
 
-        void SetTextDisplay()
+        private void SetTextDisplay()
         {
             if (textSliderDisplay != null)
             {
-                textSliderDisplay.SetText(slider.value + "/" + slider.maxValue);
+                textSliderDisplay.SetText(slider.fillAmount + "/" + maxHealth);
             }
         }
     }

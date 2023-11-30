@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using Game.Scripts.Utilities.ReadOnlyDrawer;
+using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.Scripts.Behaviours
+namespace Game.Scripts.Behaviours.Troop
 {
     public class TroopHealthBehaviour : MonoBehaviour
     {
-        [Header("Health Info")] [SerializeField]
+        [Header("Health Info")] [SerializeField] [ReadOnly]
         private int currentHealth;
 
         public bool unitIsAlive => currentHealth > 0;
@@ -33,7 +34,7 @@ namespace Game.Scripts.Behaviours
             }
 
             healthDifferenceEvent.Invoke(healthDifference);
-            DelegateEventHealthChanged();
+            HealthChangedEvent?.Invoke(currentHealth);
         }
 
         public int GetCurrentHealth()
@@ -44,14 +45,6 @@ namespace Game.Scripts.Behaviours
         void HealthIsZeroEvent()
         {
             healthIsZeroEvent.Invoke();
-        }
-
-        void DelegateEventHealthChanged()
-        {
-            if (HealthChangedEvent != null)
-            {
-                HealthChangedEvent(currentHealth);
-            }
         }
     }
 }
