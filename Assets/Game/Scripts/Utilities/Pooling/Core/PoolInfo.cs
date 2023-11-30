@@ -1,10 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.Scripts.Utilities.Pooling
 {
     [CreateAssetMenu(fileName = "PoolInfo", menuName = "Scriptables/Pooling/PoolInfo")]
-    [Serializable]
+    [System.Serializable]
     public class PoolInfo : ScriptableObject
     {
         public string PoolName;
@@ -13,7 +12,6 @@ namespace Game.Scripts.Utilities.Pooling
         public int initSize;
         public int maxSize;
         public ExtendType ExtendModel;
-
 
         public enum ExtendType
         {

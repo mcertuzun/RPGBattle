@@ -1,18 +1,18 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.Utilities.Pooling;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace Game.Scripts.Utilities.Pooling
+namespace Assets.Library.Pooling
 {
-    [Serializable]
+    [System.Serializable]
     public class Pool
     {
-        private static Vector3 FarAway = new Vector3(1000, 1000, 1000);
+        static Vector3 nowhere = new Vector3(1000, 1000, 1000);
+        PoolManager poolManager;
         public PoolInfo poolInfo;
         public List<GameObject> Pooled;
         public List<GameObject> InUse;
-
         public GameObject SamplePrefab
         {
             get
@@ -26,25 +26,25 @@ namespace Game.Scripts.Utilities.Pooling
 
         public void SetPoolInfo(PoolInfo info)
         {
+
             poolInfo = info;
         }
-
         public GameObject Extend()
         {
             GameObject tempObject = null;
 
             switch (poolInfo.ExtendModel)
             {
+
                 case PoolInfo.ExtendType.Never:
                     break;
                 case PoolInfo.ExtendType.ForceCreate:
-                    tempObject = Object.Instantiate(SamplePrefab, FarAway, Quaternion.identity);
+                    tempObject = Object.Instantiate(SamplePrefab, nowhere, Quaternion.identity);
                     PoolObject poolObject = tempObject.GetComponent<PoolObject>();
                     if (poolObject == null)
                     {
                         poolObject = tempObject.AddComponent<PoolObject>();
                     }
-
                     poolObject.SetPool(this);
                     poolObject.Reset();
                     InUse.Add(tempObject);
@@ -55,11 +55,10 @@ namespace Game.Scripts.Utilities.Pooling
                     InUse.Remove(tempObject);
                     InUse.Add(tempObject);
                     break;
-            }
 
+            }
             return tempObject;
         }
-
         public GameObject Fetch(bool isActive)
         {
             GameObject toReturn;
@@ -81,8 +80,9 @@ namespace Game.Scripts.Utilities.Pooling
             }
 
             return toReturn;
-        }
 
+
+        }
 
         public void CreateObjects()
         {
@@ -92,20 +92,18 @@ namespace Game.Scripts.Utilities.Pooling
             for (int i = 0; i < poolInfo.initSize; i++)
             {
                 Pooled.Add(Object.Instantiate(poolInfo.Prefab));
-
                 PoolObject poolObject = Pooled[i].GetComponent<PoolObject>();
                 if (poolObject == null)
                     poolObject = Pooled[i].AddComponent<PoolObject>();
                 Pooled[i].GetComponent<IPoolObject>().OnCreate();
                 poolObject.gameObject.SetActive(false);
-                poolObject.gameObject.transform.position = FarAway;
+                poolObject.gameObject.transform.position = nowhere;
                 poolObject.SetPool(this);
 
                 if (!PoolManager.instance.SetParentNull)
                     poolObject.transform.parent = PoolManager.instance.transform;
             }
         }
-
         public void Release(PoolObject poolObject)
         {
             Release(poolObject.gameObject);
@@ -123,7 +121,6 @@ namespace Game.Scripts.Utilities.Pooling
             InUse.Remove(poolObject);
             Pooled.Add(poolObject);
         }
-
         public void ReleaseAll()
         {
             while (InUse.Count > 0)
@@ -131,5 +128,10 @@ namespace Game.Scripts.Utilities.Pooling
                 Release(InUse[0]);
             }
         }
+
+
+
+
+
     }
 }

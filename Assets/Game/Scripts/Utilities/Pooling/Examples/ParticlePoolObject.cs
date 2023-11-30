@@ -1,17 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Game.Scripts.Utilities.Pooling;
+using UnityEngine;
 
-namespace Game.Scripts.Utilities.Pooling
+namespace Assets.Library.Pooling
 {
     [RequireComponent(typeof(ParticleSystem))]
     public class ParticlePoolObject : MonoBehaviour, IPoolObject
     {
         private void Start()
         {
-            var particleSystem = GetComponent<ParticleSystem>();
-            var main = particleSystem.main;
+            var _ps = GetComponent<ParticleSystem>();
+            ParticleSystem.MainModule main = _ps.main;
             main.stopAction = ParticleSystemStopAction.Callback;
         }
-
         public void ClearForRelease()
         {
             GetComponent<ParticleSystem>().Stop();
@@ -30,6 +32,7 @@ namespace Game.Scripts.Utilities.Pooling
 
         public void OnCreate()
         {
+            // throw new System.NotImplementedException();
         }
     }
 }
