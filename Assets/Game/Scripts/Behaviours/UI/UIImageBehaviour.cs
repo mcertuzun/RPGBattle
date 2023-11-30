@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Game.Scripts.Behaviours.UI
 {
-    public class UISliderBehaviour : MonoBehaviour
+    public class UIImageBehaviour : MonoBehaviour
     {
         [Header("UI References")] public Slider slider;
         public UITextBehaviour textSliderDisplay;
