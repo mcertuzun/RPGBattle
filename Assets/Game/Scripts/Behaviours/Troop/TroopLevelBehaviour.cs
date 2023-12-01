@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using Game.Scripts.Utilities.ReadOnlyDrawer;
+using UnityEngine;
 
 namespace Game.Scripts.Behaviours.Troop
 {
     public class TroopLevelBehaviour : MonoBehaviour
     {
-        [Header("Level Info")] [SerializeField]
+        [Header("Level Info")] [SerializeField] [ReadOnly]
         private int currentLevel;
 
         public delegate void LevelChangedEventHandler(int newLevel);

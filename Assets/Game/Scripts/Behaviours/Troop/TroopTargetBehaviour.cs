@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using Game.Scripts.Controllers.Troop;
+using Game.Scripts.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Game.Scripts.Behaviours
+namespace Game.Scripts.Behaviours.Troop
 {
-    public enum TargetType
-    {
-        Random,
-        Order
-    }
-
     public class TroopTargetBehaviour : MonoBehaviour
     {
-        [Header("Targets")] public List<TroopController> targetTroops;
+        [Header("Targets")] public List<TroopControllerBase> targetTroops;
 
-        public void AddTargetUnits(List<TroopController> addedUnits)
+        public void AddTargetUnits(List<TroopControllerBase> addedUnits)
         {
             targetTroops.Clear();
             foreach (var troop in addedUnits)
@@ -24,43 +20,43 @@ namespace Game.Scripts.Behaviours
             }
         }
 
-        public void RemoveTargetUnit(TroopController removedUnit)
+        public void RemoveTargetUnit(TroopControllerBase removedUnit)
         {
             targetTroops.Remove(removedUnit);
         }
 
-        public List<TroopController> FilterTargetUnits(TargetType targetType)
+        public List<TroopControllerBase> FilterTargetUnits(AttackType attackType)
         {
-            List<TroopController> filteredUnits = new List<TroopController>();
+            List<TroopControllerBase> filteredUnits = new();
 
             if (targetTroops.Count <= 0)
             {
                 return filteredUnits;
             }
 
-            switch (targetType)
+            switch (attackType)
             {
-                case TargetType.Random:
+                case AttackType.Solo:
                     int randomUnit = Random.Range(0, targetTroops.Count);
                     filteredUnits.Add(targetTroops[randomUnit]);
                     break;
-                case TargetType.Order:
-                    //Maybe later.. Check it according to the case count
+                case AttackType.Area:
+                    filteredUnits.AddRange(targetTroops);
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(targetType), targetType, null);
+                    throw new ArgumentOutOfRangeException(nameof(attackType), attackType, null);
             }
 
             return filteredUnits;
         }
 
-        public TroopController GetRandomTargetUnit()
+        public TroopControllerBase GetRandomTargetUnit()
         {
             int randomUnit = Random.Range(0, targetTroops.Count);
             return targetTroops[randomUnit];
         }
 
-        public List<TroopController> GetAllTargetUnits()
+        public List<TroopControllerBase> GetAllTargetUnits()
         {
             return targetTroops;
         }

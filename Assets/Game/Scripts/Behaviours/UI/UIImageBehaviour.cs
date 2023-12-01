@@ -22,7 +22,8 @@ namespace Game.Scripts.Behaviours.UI
 
         public void SetCurrentValue(float newValue)
         {
-            slider.fillAmount = newValue;
+            Debug.Log(newValue);
+            slider.fillAmount = newValue/100;
             SetTextDisplay();
         }
 
@@ -30,7 +31,7 @@ namespace Game.Scripts.Behaviours.UI
         {
             if (textSliderDisplay != null)
             {
-                textSliderDisplay.SetText(slider.fillAmount + "/" + maxHealth);
+                textSliderDisplay.SetText(slider.fillAmount * 100 + "/" + maxHealth);
             }
         }
     }

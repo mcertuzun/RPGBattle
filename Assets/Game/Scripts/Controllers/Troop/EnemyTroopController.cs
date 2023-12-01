@@ -1,18 +1,6 @@
-﻿using Game.Scripts.Behaviours.UI;
-using UnityEngine;
-
-namespace Game.Scripts
+﻿namespace Game.Scripts.Controllers.Troop
 {
-    public class EnemyTroopController: TroopControllerBase
-    {
-        public TroopStateBehaviour TroopStateBehaviour;
-        public override void StartAttack(TroopController troopController)
-        {
-         
-        }
-    }
-
-    public class TroopStateBehaviour : MonoBehaviour
+    public class EnemyTroopController : TroopControllerBase
     {
     }
 }

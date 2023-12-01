@@ -13,10 +13,17 @@ namespace Game.Scripts.Data
         public float experience;
         public float level;
         public TeamType teamType;
+        public AttackType AttackType;
     }
 
     public enum TeamType
     {
         Ally,Enemy
     }
+    public enum AttackType
+    {
+        Solo,
+        Area
+    }
+  
 }

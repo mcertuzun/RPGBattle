@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b155a42e65632a9498709e6a6a72fe07, type: 3}
-  m_Name: PoolInfoTest
+  m_Script: {fileID: 11500000, guid: 69333bed9d17412585697cec284c362a, type: 3}
+  m_Name: AttackSignal
   m_EditorClassIdentifier: 
-  PoolName: AA
-  PoolId: 0
-  Prefab: {fileID: 1362174398317433297, guid: 178a1122fda565c4eacdd073cb72f000, type: 3}
-  initSize: 10
-  maxSize: 10
-  ExtendModel: 1

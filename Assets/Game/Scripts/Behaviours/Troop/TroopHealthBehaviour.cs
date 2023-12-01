@@ -7,25 +7,26 @@ namespace Game.Scripts.Behaviours.Troop
     public class TroopHealthBehaviour : MonoBehaviour
     {
         [Header("Health Info")] [SerializeField] [ReadOnly]
-        private int currentHealth;
+        private float currentHealth;
 
         public bool unitIsAlive => currentHealth > 0;
 
-        [Header("Events")] public UnityEvent<int> healthDifferenceEvent;
+        [Header("Events")] public UnityEvent<float> healthDifferenceEvent;
         public UnityEvent healthIsZeroEvent;
 
-        public delegate void HealthChangedEventHandler(int newHealthAmount);
+        public delegate void HealthChangedEventHandler(float newHealthAmount);
 
         public event HealthChangedEventHandler HealthChangedEvent;
 
-        public void SetupCurrentHealth(int totalHealth)
+        public void SetupCurrentHealth(float totalHealth)
         {
             currentHealth = totalHealth;
         }
 
-        public void ChangeHealth(int healthDifference)
+        public void ChangeHealth(float healthDifference)
         {
-            currentHealth = currentHealth + healthDifference;
+
+            currentHealth -= healthDifference;
 
             if (currentHealth <= 0)
             {
@@ -37,7 +38,7 @@ namespace Game.Scripts.Behaviours.Troop
             HealthChangedEvent?.Invoke(currentHealth);
         }
 
-        public int GetCurrentHealth()
+        public float GetCurrentHealth()
         {
             return currentHealth;
         }

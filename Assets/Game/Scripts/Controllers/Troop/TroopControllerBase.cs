@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using Game.Scripts.Behaviours;
 using Game.Scripts.Behaviours.Troop;
 using Game.Scripts.Behaviours.Troop.Attack;
 using Game.Scripts.Data;
 using UnityEngine;
-using AttackType = Game.Scripts.Behaviours.AttackType;
 
-namespace Game.Scripts
+namespace Game.Scripts.Controllers.Troop
 {
     public abstract class TroopControllerBase : MonoBehaviour
     {
@@ -20,66 +18,54 @@ namespace Game.Scripts
 
         [Header("Attack Settings")] [SerializeField]
         protected TroopAttackBehaviour attackBehaviour;
-        public delegate void UnitDiedEventHandler(TroopController unit);
+        public delegate void UnitDiedEventHandler(TroopControllerBase unit);
         public event UnitDiedEventHandler TroopDiedEvent;
-        
-        [Header("Debug")] public bool initializeOnStart;
 
-        public abstract void StartAttack(TroopController troopController);
-       
+        [Header("Debug")] public bool initializeOnStart;
         private void Start()
         {
             if (initializeOnStart)
             {
                 SetHealth();
-                BattleStarted();
             }
         }
 
-        public void BattleStarted()
+        public void StartBattle()
         {
-            //attacksBehaviour.StartAttackCooldowns();
+            var targets = targetsBehaviour.FilterTargetUnits(AttackType.Solo);
+            attackBehaviour.AttackAction(targets);
         }
-        
-        public void BattleEnded()
-        {
-            //attacksBehaviour.StopAllAttacks();
-        }
-        
-        private void SetHealth() => healthBehaviour.SetupCurrentHealth(data.health);
 
         public void SetTroopData()
         {
+            SetHealth();
         }
 
-        #region AttackTroops
-        public void AttackTroop(int attackValue, AttackType attackType)
-        {   
-            List<TroopController> targetUnits = targetsBehaviour.FilterTargetUnits(attackType);
-            if(targetUnits.Count > 0)
-            {
-                for(int i = 0; i < targetUnits.Count; i++)
-                {
-                    targetUnits[i].RecieveTargetValue(attackValue);
-                }  
-            } 
-        }
-        public void RecieveTargetValue(int abilityValue)
+        #region TroopHealth
+
+        private void SetHealth() => healthBehaviour.SetupCurrentHealth(data.health);
+
+        public void RecieveTargetValue(float damage)
         {
-            if(healthBehaviour.unitIsAlive)
+            if (healthBehaviour.unitIsAlive)
             {
-                healthBehaviour.ChangeHealth(abilityValue);
+                healthBehaviour.ChangeHealth(damage);
             }
         }
 
         #endregion
 
+
         #region TargetTroops
-        public void AssignTargetTroops(List<TroopController> aliveTroop) => targetsBehaviour.AddTargetUnits(aliveTroop);
-        public void RemoveTargetUnit(TroopController unit) => targetsBehaviour.RemoveTargetUnit(unit);
+
+        public void AssignTargetTroops(List<TroopControllerBase> aliveTroop) =>
+            targetsBehaviour.AddTargetUnits(aliveTroop);
+
+        public void RemoveTargetUnit(TroopControllerBase unit) => targetsBehaviour.RemoveTargetUnit(unit);
+
         #endregion
 
-        protected virtual void OnUnitDiedEvent(TroopController unit)
+        protected virtual void OnUnitDiedEvent(TroopControllerBase unit)
         {
             TroopDiedEvent?.Invoke(unit);
         }

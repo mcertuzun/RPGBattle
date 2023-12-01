@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f51813ea1fd5a8b4dab105cf48f12676, type: 3}
-  m_Name: PoolCreateInfo
+  m_Script: {fileID: 11500000, guid: e78f44ce909a47aeb64b58845db8e52a, type: 3}
+  m_Name: EnemyTroopDataTest
   m_EditorClassIdentifier: 
-  CreationList:
-  - {fileID: 11400000, guid: ad23ad1e68d2b634486c4f35e7ed3de1, type: 2}
+  troopName: TroopTest
+  health: 100
+  attackPower: 10
+  experience: 0
+  level: 0
+  teamType: 1
+  AttackType: 0

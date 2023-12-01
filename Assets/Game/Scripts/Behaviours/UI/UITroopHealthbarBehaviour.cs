@@ -15,12 +15,13 @@ namespace Game.Scripts.Behaviours.UI
 
         private void SetupHealthDisplay()
         {
-            int totalHealth = healthBehaviour.GetCurrentHealth();
-            healthSlider.SetupDisplay((float)totalHealth);
+            
+            float totalHealth = healthBehaviour.GetCurrentHealth();
+            healthSlider.SetupDisplay(totalHealth);
             UpdateHealthDisplay(totalHealth);
         }
 
-        private void UpdateHealthDisplay(int newHealthAmount)
+        private void UpdateHealthDisplay(float newHealthAmount)
         {
             healthSlider.SetCurrentValue(newHealthAmount);
         }

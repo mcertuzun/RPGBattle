@@ -1,27 +1,16 @@
 ﻿using Game.Scripts.Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Behaviours
 {
-    public class BattleStateBehaviour : MonoBehaviour
+    public class TeamTypeBehaviour : MonoBehaviour
     {
-        public TeamType currentTeamState = TeamType.Ally;
+        public TeamType currentTeamType = TeamType.Ally;
         public AttackSignals attackSignals;
 
         public delegate void OnTeamTypeChanged(TeamType teamType);
-
         public event OnTeamTypeChanged TeamTypeChangedEvent;
-
-        private void OnEnable()
-        {
-            attackSignals.AttackEndEvent += AttackSignalsOnAttackEndEvent;
-        }
-
-        private void OnDisable()
-        {
-            attackSignals.AttackEndEvent -= AttackSignalsOnAttackEndEvent;
-        }
-
         private void AttackSignalsOnAttackEndEvent()
         {
             TeamTypeChangedEvent?.Invoke(SetNextTeamType());
@@ -29,8 +18,12 @@ namespace Game.Scripts.Behaviours
 
         private TeamType SetNextTeamType()
         {
-            currentTeamState = currentTeamState == TeamType.Ally ? TeamType.Enemy : TeamType.Ally;
-            return currentTeamState;
+            currentTeamType = currentTeamType == TeamType.Ally ? TeamType.Enemy : TeamType.Ally;
+            return currentTeamType;
         }
+        
+        private void OnEnable()=> attackSignals.AttackEndEvent += AttackSignalsOnAttackEndEvent;
+        private void OnDisable() => attackSignals.AttackEndEvent -= AttackSignalsOnAttackEndEvent;
+
     }
 }
