@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Game.Scripts.Behaviours.UI
+namespace Game.Scripts.Behaviours.UI.TroopSelection
 {
     public class UISelectionImageBehaviour : MonoBehaviour, IPointerClickHandler, IPointerDownHandler,
         IPointerUpHandler, IPointerEnterHandler, IPointerExitHandler
@@ -19,7 +19,18 @@ namespace Game.Scripts.Behaviours.UI
         public UISelectionInfoPopUpBehaviour infoPopUpBehaviour;
 
         [Header("Selection")] [SerializeField] private Outline Outline;
-        public bool isSelected;
+
+        public bool isSelected
+        {
+            get
+            {
+                return Outline.enabled;
+            }
+            set
+            {
+                Outline.enabled = value;
+            }
+        }
 
         public delegate void TroopSelectEventHandler(UISelectionImageBehaviour UITroop);
 
@@ -47,9 +58,12 @@ namespace Game.Scripts.Behaviours.UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            isSelected = !isSelected;
-            Outline.enabled = isSelected;
             TroopSelectEvent?.Invoke(this);
+        }
+
+        public void SwitchSelection()
+        {
+            isSelected = !isSelected;
         }
 
         public void OnPointerDown(PointerEventData eventData)

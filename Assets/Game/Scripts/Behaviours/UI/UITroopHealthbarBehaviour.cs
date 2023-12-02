@@ -15,7 +15,6 @@ namespace Game.Scripts.Behaviours.UI
 
         private void SetupHealthDisplay()
         {
-            
             float totalHealth = healthBehaviour.GetCurrentHealth();
             healthSlider.SetupDisplay(totalHealth);
             UpdateHealthDisplay(totalHealth);

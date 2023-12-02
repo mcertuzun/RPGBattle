@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78f44ce909a47aeb64b58845db8e52a, type: 3}
   m_Name: Enemy 1
   m_EditorClassIdentifier: 
-  troopName: TroopTest
+  Name: Enemy
   health: 100
-  attackPower: 100
-  experience: 0
-  level: 0
+  AttackPower: 50
+  Experience: 0
+  Level: 0
   teamType: 1
   AttackType: 0
+  troopPrefab: {fileID: 0}

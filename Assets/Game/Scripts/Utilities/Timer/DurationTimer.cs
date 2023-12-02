@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Scripts.Utilities.Timer;
 using UnityEngine;
 
 namespace Game.Scripts.Timer
@@ -32,12 +33,12 @@ namespace Game.Scripts.Timer
 
         public bool HasElapsed()
         {
-            return Comparison.TolerantGreaterThanOrEquals(this.polledTime, this.durationTime);
+            return Comparison.GreaterThanOrEquals(this.polledTime, this.durationTime);
         }
 
         public float GetRatio()
         {
-            if (Comparison.TolerantLesserThanOrEquals(this.durationTime, 0))
+            if (Comparison.LesserThanOrEquals(this.durationTime, 0))
             {
                 return 1.0f;
             }

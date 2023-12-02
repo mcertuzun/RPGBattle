@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 
-namespace Game.Scripts.Timer
+namespace Game.Scripts.Utilities.Timer
 {
     public static class Comparison
     {
-        public static bool TolerantEquals(float a, float b)
+        public static bool Equals(float a, float b)
         {
             return Mathf.Approximately(a, b);
         }
 
-        public static bool TolerantGreaterThanOrEquals(float a, float b)
+        public static bool GreaterThanOrEquals(float a, float b)
         {
-            return a > b || TolerantEquals(a, b);
+            return a > b || Equals(a, b);
         }
 
-        public static bool TolerantLesserThanOrEquals(float a, float b)
+        public static bool LesserThanOrEquals(float a, float b)
         {
-            return a < b || TolerantEquals(a, b);
+            return a < b || Equals(a, b);
+        }
+        public static bool LesserThan(float a, float b)
+        {
+            return a < b ;
         }
     }
 }

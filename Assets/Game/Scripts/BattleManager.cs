@@ -2,6 +2,7 @@
 using Game.Scripts.Controllers;
 using Game.Scripts.Controllers.Troop;
 using Game.Scripts.Data;
+using Game.Scripts.Utilities.SaveSystem;
 using UnityEngine;
 
 namespace Game.Scripts.Behaviours
@@ -23,6 +24,8 @@ namespace Game.Scripts.Behaviours
         // [Header("Win Battle")] public SceneTimelineBehaviour victoryCutsceneBehaviour;
         // [Header("Lose Battle")] public SceneTimelineBehaviour defeatCutsceneBehaviour;
 
+        
+        
         public void SetupTeams()
         {
             CreateAliveTroops();
@@ -58,6 +61,7 @@ namespace Game.Scripts.Behaviours
                 var createdTroop = uiSelectionController.selectedUITroops[i].troopData.Create(TroopPositions[i]);
                 aliveTroops[TeamType.Ally].Add(createdTroop);
             }
+
         }
 
         private void SetTroops(TeamType teamType)

@@ -48,7 +48,7 @@ namespace Game.Scripts.Controllers.Troop
 
         private void SetHealth()
         {
-            healthBehaviour.SetupCurrentHealth(data.health);
+            healthBehaviour.SetupCurrentHealth(data.Health);
         } 
 
         public void RecieveTargetValue(float damage)

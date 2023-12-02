@@ -1,28 +1,44 @@
 ﻿using Game.Scripts.Controllers.Troop;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Data
 {
     [CreateAssetMenu(fileName = "TroopData", menuName = "SO/TroopData", order = 0)]
     public class TroopData : ScriptableObject
     {
-        //Todo separete into different data holders 
+        //Todo seperate into different data holders.
         public string Name;
-        public int health;
+        public int Health;
         public float AttackPower;
-        public float Experience;
-        public float Level;
+        public int Experience;
+        public int Level;
         public TeamType teamType;
         public AttackType AttackType;
         public GameObject troopPrefab;
 
         public TroopControllerBase Create(Transform troopPosition)
         {
-            Debug.Log("Create VAR");
             var troop = Instantiate(troopPrefab, troopPosition.position, Quaternion.identity, troopPosition)
                 .GetComponent<TroopControllerBase>();
             return troop;
         }
+        public void GainExperience(int expGain)
+        {
+            Experience += expGain;
+            while (Experience >= 5)
+            {
+                LevelUp();
+                Experience -= 5;
+            }
+        }
+        private void LevelUp()
+        {
+            Level++;
+            AttackPower = Mathf.CeilToInt(AttackPower * 1.1f);
+            Health = Mathf.CeilToInt(Health * 1.1f);
+        }
+
     }
 
     public enum TeamType
