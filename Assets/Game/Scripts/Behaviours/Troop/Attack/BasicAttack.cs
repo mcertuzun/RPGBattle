@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Game.Scripts.Controllers.Troop;
 using Game.Scripts.Data;
+using Game.Scripts.Utilities.Pooling;
 using UnityEngine;
 
 namespace Game.Scripts.Behaviours.Troop.Attack
@@ -8,15 +9,14 @@ namespace Game.Scripts.Behaviours.Troop.Attack
     public class BasicAttack : MonoBehaviour
     {
         public AttackSignals attackSignals;
-        public AttackData Data;
 
-        public void To(TroopControllerBase target)
+        public void To(TroopControllerBase target, float damage)
         {
             transform.DOJump(target.transform.position, 1f, 1, 1f)
                 .OnComplete(() =>
                 {
-                    target.RecieveTargetValue(Data.GetRandomValueInRange());
-                    attackSignals.TriggerEnd();
+                    target.RecieveTargetValue(damage);
+                    attackSignals.TriggerEnd(target.data.teamType == TeamType.Enemy);
                 });
         }
     }

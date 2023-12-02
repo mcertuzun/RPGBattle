@@ -22,8 +22,7 @@ namespace Game.Scripts.Behaviours.UI
 
         public void SetCurrentValue(float newValue)
         {
-            Debug.Log(newValue);
-            slider.fillAmount = newValue/100;
+            slider.fillAmount = newValue / 100;
             SetTextDisplay();
         }
 

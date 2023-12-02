@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopName: TroopTest
   health: 100
-  attackPower: 10
+  attackPower: 100
   experience: 0
   level: 0
   teamType: 1

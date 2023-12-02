@@ -2,13 +2,7 @@
 
 namespace Game.Scripts.Data
 {
-    public class Stats : ScriptableObject
-    {
-        public string Name;
-        public int Level;
-        public float Experience;
-    }
-
+    
     [CreateAssetMenu(fileName = "AttackData", menuName = "SO/AttackData", order = 0)]
     public class AttackData : ScriptableObject
     {

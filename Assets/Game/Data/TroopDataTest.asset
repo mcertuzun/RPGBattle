@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78f44ce909a47aeb64b58845db8e52a, type: 3}
   m_Name: TroopDataTest
   m_EditorClassIdentifier: 
-  troopName: TroopTest
+  Name: TroopTest
   health: 100
-  attackPower: 10
-  experience: 0
-  level: 0
+  AttackPower: 10
+  Experience: 11
+  Level: 13
   teamType: 0
+  AttackType: 0

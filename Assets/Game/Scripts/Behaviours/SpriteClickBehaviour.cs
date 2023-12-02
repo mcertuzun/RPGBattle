@@ -1,18 +1,21 @@
-using Game.Scripts.Controllers.Troop;
+using Game.Scripts.Data;
 using UnityEngine;
 
 namespace Game.Scripts.Behaviours
 {
     public class SpriteClickBehaviour : MonoBehaviour
     {
-
-        public delegate void StartAttack();
+        public delegate void StartAttack(bool hit);
 
         public event StartAttack StartAttackEvent;
 
+        public AttackSignals attackSignals;
+
         void OnMouseDown()
         {
-            StartAttackEvent?.Invoke();
+            if (!attackSignals.canPlayerHit) return;
+            StartAttackEvent?.Invoke(true);
+            attackSignals.TriggerStart();
         }
     }
 }

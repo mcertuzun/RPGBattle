@@ -107,6 +107,7 @@ PrefabInstance:
     - {fileID: 2081388663461530568, guid: 99b43815b30c40a48b5877fdd707496b, type: 3}
     - {fileID: 2743261555928324672, guid: 99b43815b30c40a48b5877fdd707496b, type: 3}
     - {fileID: 2419629621656184284, guid: 99b43815b30c40a48b5877fdd707496b, type: 3}
+    - {fileID: 8689008507774300721, guid: 99b43815b30c40a48b5877fdd707496b, type: 3}
     m_RemovedGameObjects:
     - {fileID: 97948019458168176, guid: 99b43815b30c40a48b5877fdd707496b, type: 3}
     m_AddedGameObjects: []
@@ -139,8 +140,8 @@ MonoBehaviour:
   healthBehaviour: {fileID: 2233903045541121733}
   targetsBehaviour: {fileID: 8002319655565199015}
   attackBehaviour: {fileID: 7850979478093029572}
+  attackSignals: {fileID: 11400000, guid: 17e207bccc76d44479c97941ee697fd4, type: 2}
   initializeOnStart: 0
-  BattleStateBehaviour: {fileID: 0}
 --- !u!114 &7850979478093029572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880001cac9c5406dac1a895bc888152c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: dc9d66f36f50ab14086a02604292609f, type: 2}
   poolInfo: {fileID: 11400000, guid: ad23ad1e68d2b634486c4f35e7ed3de1, type: 2}
 --- !u!114 &2233903045541121733 stripped
 MonoBehaviour:

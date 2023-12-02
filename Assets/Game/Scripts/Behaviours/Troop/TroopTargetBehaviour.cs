@@ -22,7 +22,8 @@ namespace Game.Scripts.Behaviours.Troop
 
         public void RemoveTargetUnit(TroopControllerBase removedUnit)
         {
-            targetTroops.Remove(removedUnit);
+            if (targetTroops.Contains(removedUnit))
+                targetTroops.Remove(removedUnit);
         }
 
         public List<TroopControllerBase> FilterTargetUnits(AttackType attackType)

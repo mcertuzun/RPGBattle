@@ -18,10 +18,13 @@ namespace Game.Scripts.Controllers.Troop
 
         [Header("Attack Settings")] [SerializeField]
         protected TroopAttackBehaviour attackBehaviour;
-        public delegate void UnitDiedEventHandler(TroopControllerBase unit);
-        public event UnitDiedEventHandler TroopDiedEvent;
 
+        public delegate void UnitDiedEventHandler(TroopControllerBase unit);
+
+        public event UnitDiedEventHandler TroopDiedEvent;
+        public AttackSignals attackSignals;
         [Header("Debug")] public bool initializeOnStart;
+
         private void Start()
         {
             if (initializeOnStart)
@@ -30,10 +33,10 @@ namespace Game.Scripts.Controllers.Troop
             }
         }
 
-        public void StartBattle()
+        public void Hit(bool isPlayer = true)
         {
             var targets = targetsBehaviour.FilterTargetUnits(AttackType.Solo);
-            attackBehaviour.AttackAction(targets);
+            attackBehaviour.AttackAction(targets, data.AttackPower);
         }
 
         public void SetTroopData()
@@ -43,13 +46,18 @@ namespace Game.Scripts.Controllers.Troop
 
         #region TroopHealth
 
-        private void SetHealth() => healthBehaviour.SetupCurrentHealth(data.health);
+        private void SetHealth()
+        {
+            healthBehaviour.SetupCurrentHealth(data.health);
+        } 
 
         public void RecieveTargetValue(float damage)
         {
             if (healthBehaviour.unitIsAlive)
             {
                 healthBehaviour.ChangeHealth(damage);
+                if(!healthBehaviour.unitIsAlive)
+                    TroopDiedEvent?.Invoke(this);
             }
         }
 
@@ -61,13 +69,13 @@ namespace Game.Scripts.Controllers.Troop
         public void AssignTargetTroops(List<TroopControllerBase> aliveTroop) =>
             targetsBehaviour.AddTargetUnits(aliveTroop);
 
-        public void RemoveTargetUnit(TroopControllerBase unit) => targetsBehaviour.RemoveTargetUnit(unit);
+        public void RemoveTargetTroop(TroopControllerBase unit) => targetsBehaviour.RemoveTargetUnit(unit);
 
         #endregion
 
         protected virtual void OnUnitDiedEvent(TroopControllerBase unit)
         {
-            TroopDiedEvent?.Invoke(unit);
+          
         }
     }
 }

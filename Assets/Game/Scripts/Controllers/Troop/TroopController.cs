@@ -7,9 +7,8 @@ namespace Game.Scripts.Controllers.Troop
     {
         [Header("Attack Event")] [SerializeField]
         public SpriteClickBehaviour SpriteClickBehaviour;
-        private void OnEnable()
-        {
-            SpriteClickBehaviour.StartAttackEvent += StartBattle;
-        }
+
+        private void OnEnable() => SpriteClickBehaviour.StartAttackEvent += Hit;
+        private void OnDisable() => SpriteClickBehaviour.StartAttackEvent -= Hit;
     }
 }

@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Game.Scripts.Timer
 {
+    [Serializable]
     public class DurationTimer
     {
         private float polledTime;
@@ -37,9 +39,6 @@ namespace Game.Scripts.Timer
         {
             if (Comparison.TolerantLesserThanOrEquals(this.durationTime, 0))
             {
-                // bad duration time value
-                // if countdownTime is zero, ratio will be infinity (divide by zero)
-                // we just return 1.0 here for safety
                 return 1.0f;
             }
 

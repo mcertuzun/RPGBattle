@@ -25,7 +25,6 @@ namespace Game.Scripts.Behaviours.Troop
 
         public void ChangeHealth(float healthDifference)
         {
-
             currentHealth -= healthDifference;
 
             if (currentHealth <= 0)

@@ -8,20 +8,24 @@ namespace Game.Scripts.Data
     {
         public event Action AttackEndEvent;
         public event Action AttackStartEvent;
-        private bool isNextAttackReady;
-
+        public bool canPlayerHit = true;
 
         public void TriggerStart()
         {
-            if (!isNextAttackReady) return;
-            isNextAttackReady = false;
             AttackStartEvent?.Invoke();
+            canPlayerHit = false;
         }
 
-        public void TriggerEnd()
+        public void TriggerEnd(bool isAi)
         {
-            isNextAttackReady = true;
             AttackEndEvent?.Invoke();
+            if(isAi)
+                canPlayerHit = true;
+        }
+
+        private void OnDisable()
+        {
+            canPlayerHit = true;
         }
     }
 }
