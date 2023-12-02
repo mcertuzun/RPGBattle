@@ -1,4 +1,5 @@
-﻿using Game.Scripts.Utilities.StateSystem;
+﻿using System;
+using Game.Scripts.Utilities.StateSystem;
 using UnityEngine;
 
 namespace Game.Scripts.Utilities.UI
@@ -6,7 +7,8 @@ namespace Game.Scripts.Utilities.UI
     public abstract class CanvasBase : MonoBehaviour, IStateListener, IActivator
     {
         public StateMask stateMask;
-
+        [SerializeField] private StateManager StateManager;
+        
         public void StartListen()
         {
             StateManager.OnStateChange += OnStateChange;
@@ -38,6 +40,7 @@ namespace Game.Scripts.Utilities.UI
     {
         InGameUI,
         VictoryUI,
-        DefeatUI
+        DefeatUI,
+        SelectTroopsUI
     }
 }

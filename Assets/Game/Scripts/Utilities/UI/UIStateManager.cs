@@ -1,6 +1,6 @@
 ﻿namespace Game.Scripts.Utilities.UI
 {
-    public class VictoryCanvas
+    public class UIStateManager
     {
         
     }

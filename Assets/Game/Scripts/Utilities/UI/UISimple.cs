@@ -1,6 +1,6 @@
 ﻿namespace Game.Scripts.Utilities.UI
 {
-    public class InGameCanvas
+    public class SimpleUI : CanvasBase
     {
         
     }
