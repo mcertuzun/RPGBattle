@@ -1,26 +1,13 @@
-﻿using System;
-using Game.Scripts.Utilities.StateSystem;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Utilities.UI
 {
-    public abstract class CanvasBase : MonoBehaviour, IStateListener, IActivator
+    public abstract class UIBase : MonoBehaviour
     {
         public StateMask stateMask;
-        [SerializeField] private StateManager StateManager;
-        
-        public void StartListen()
-        {
-            StateManager.OnStateChange += OnStateChange;
-            OnStateChange(StateManager.GetState());
-        }
-
-        public void StopListen()
-        {
-            StateManager.OnStateChange -= OnStateChange;
-        }
-
-        public void OnStateChange(UIState uiState)
+      
+        public void OnUiStateChange(UIState uiState)
         {
             SetActivate(stateMask.GamesStateContains(uiState));
         }
@@ -30,15 +17,11 @@ namespace Game.Scripts.Utilities.UI
             gameObject.SetActive(val);
         }
 
-        protected virtual void OnDestroy()
-        {
-            StopListen();
-        }
     }
 
     public enum UIState
     {
-        InGameUI,
+        InGameUI=0,
         VictoryUI,
         DefeatUI,
         SelectTroopsUI

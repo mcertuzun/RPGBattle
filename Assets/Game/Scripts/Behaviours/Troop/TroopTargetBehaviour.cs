@@ -51,6 +51,10 @@ namespace Game.Scripts.Behaviours.Troop
             return filteredUnits;
         }
 
+        public void ResetTargets()
+        {
+            targetTroops.Clear();
+        }
         public TroopControllerBase GetRandomTargetUnit()
         {
             int randomUnit = Random.Range(0, targetTroops.Count);

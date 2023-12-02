@@ -22,7 +22,6 @@ namespace Game.Scripts.Controllers.Troop
         public delegate void UnitDiedEventHandler(TroopControllerBase unit);
 
         public event UnitDiedEventHandler TroopDiedEvent;
-        public AttackSignals attackSignals;
         [Header("Debug")] public bool initializeOnStart;
 
         private void Start()
@@ -39,24 +38,28 @@ namespace Game.Scripts.Controllers.Troop
             attackBehaviour.AttackAction(targets, data.AttackPower);
         }
 
-        public void SetTroopData()
+      
+
+        public void ResetTroop()
         {
             SetHealth();
+            targetsBehaviour.ResetTargets();
         }
+
 
         #region TroopHealth
 
-        private void SetHealth()
+        public void SetHealth()
         {
             healthBehaviour.SetupCurrentHealth(data.Health);
-        } 
+        }
 
         public void RecieveTargetValue(float damage)
         {
             if (healthBehaviour.unitIsAlive)
             {
                 healthBehaviour.ChangeHealth(damage);
-                if(!healthBehaviour.unitIsAlive)
+                if (!healthBehaviour.unitIsAlive)
                     TroopDiedEvent?.Invoke(this);
             }
         }
@@ -72,10 +75,5 @@ namespace Game.Scripts.Controllers.Troop
         public void RemoveTargetTroop(TroopControllerBase unit) => targetsBehaviour.RemoveTargetUnit(unit);
 
         #endregion
-
-        protected virtual void OnUnitDiedEvent(TroopControllerBase unit)
-        {
-          
-        }
     }
 }

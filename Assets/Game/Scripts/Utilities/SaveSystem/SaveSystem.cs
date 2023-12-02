@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Game.Scripts.Data;
+using UnityEngine;
 
 namespace Game.Scripts.Utilities.SaveSystem
 {
-    using System.IO;
-    using UnityEngine;
-
     public static class SaveSystem
     {
         private static string GetFilePath(string heroName)
@@ -15,34 +14,27 @@ namespace Game.Scripts.Utilities.SaveSystem
 
         public static void SaveTroopsData(List<TroopData> troops)
         {
-            for (var i = 0; i < troops.Count; i++)
-            {
-                SaveHeroData(troops[i]);
-            }
+            TroopList troopList = new TroopList() { data = troops };
+            string json = JsonUtility.ToJson(troopList);
+            File.WriteAllText(GetFilePath("troops"), json);
         }
 
-        public static void LoadTroopsData(List<TroopData> troops)
+        public static List<TroopData> LoadTroopsData(List<TroopData> troops)
         {
-            for (var i = 0; i < troops.Count; i++)
-            {
-                LoadTroopData(troops[i]);
-            }
-        }
-        public static void SaveHeroData(TroopData troop)
-        {
-            string json = JsonUtility.ToJson(troop);
-            File.WriteAllText(GetFilePath(troop.Name), json);
-        }
-
-        public static void LoadTroopData(TroopData troop)
-        {
-            string filePath = GetFilePath(troop.Name);
+            string filePath = GetFilePath("troops");
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                JsonUtility.FromJsonOverwrite(json, troop);
+                TroopList troopList = JsonUtility.FromJson<TroopList>(json);
+                return troopList.data;
             }
+
+            return new List<TroopData>();
+        }
+
+        public struct TroopList
+        {
+            public List<TroopData> data;
         }
     }
-
 }

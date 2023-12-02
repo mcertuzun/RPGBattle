@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f314f8589f574f0eb4b52ded8ec33fae, type: 3}
+  m_Name: TroopDataList
+  m_EditorClassIdentifier: 
+  Value:
+  - {fileID: 11400000, guid: 25fde063022d41040b459fe67122896d, type: 2}
+  - {fileID: 11400000, guid: 4595f605db4fe5442a14239ab8125a3d, type: 2}
+  - {fileID: 11400000, guid: b5cc772025196f14481e68bdd383eaaa, type: 2}
+  - {fileID: 11400000, guid: 165a8aefcd376c94fbe14bdb6400e072, type: 2}
+  - {fileID: 11400000, guid: 8154dba50f3aafd4ea945c3ef060fd85, type: 2}
+  - {fileID: 11400000, guid: 659a88ab49fbdeb499e011fb7c8d3a6b, type: 2}
+  - {fileID: 11400000, guid: ed6ce1ca781d3004b93fc808b3c3e101, type: 2}
+  - {fileID: 11400000, guid: e7559f5108f50ed4da4ccb4e5068a5c2, type: 2}
+  - {fileID: 11400000, guid: af031bb3c7997f94481b29db38c803ac, type: 2}
+  - {fileID: 11400000, guid: a169ed271d49ebe4f916de60e94a6743, type: 2}
+  - {fileID: 11400000, guid: 316e349d06f37e545b8b3af2c3e12ab9, type: 2}

@@ -1,6 +1,5 @@
 ﻿using Game.Scripts.Controllers.Troop;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Scripts.Data
 {
@@ -9,12 +8,11 @@ namespace Game.Scripts.Data
     {
         //Todo seperate into different data holders.
         public string Name;
-        public int Health;
+        public float Health;
         public float AttackPower;
         public int Experience;
         public int Level;
         public TeamType teamType;
-        public AttackType AttackType;
         public GameObject troopPrefab;
 
         public TroopControllerBase Create(Transform troopPosition)
@@ -23,6 +21,7 @@ namespace Game.Scripts.Data
                 .GetComponent<TroopControllerBase>();
             return troop;
         }
+
         public void GainExperience(int expGain)
         {
             Experience += expGain;
@@ -32,13 +31,13 @@ namespace Game.Scripts.Data
                 Experience -= 5;
             }
         }
+
         private void LevelUp()
         {
             Level++;
             AttackPower = Mathf.CeilToInt(AttackPower * 1.1f);
             Health = Mathf.CeilToInt(Health * 1.1f);
         }
-
     }
 
     public enum TeamType

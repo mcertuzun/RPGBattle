@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Game.Scripts.Utilities.UI;
 using UnityEngine;
 
-namespace Game.Scripts.Utilities.StateSystem
+namespace Game.Scripts.Utilities.UI
 {
     public class UIStateController : MonoBehaviour
     {
@@ -32,10 +31,12 @@ namespace Game.Scripts.Utilities.StateSystem
             return currentState;
         }
 
-        public void SetState(UIState uiState)
+        public void SetState(int uiState)
         {
-            currentState = uiState;
-            OnStateChange?.Invoke(uiState);
+            currentState = (UIState)uiState;
+            OnStateChange?.Invoke(currentState);
         }
+        
+        
     }
 }

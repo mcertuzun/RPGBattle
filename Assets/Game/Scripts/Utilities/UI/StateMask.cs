@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Game.Scripts.Utilities.UI;
 
-namespace Game.Scripts.Utilities.StateSystem
+namespace Game.Scripts.Utilities.UI
 {
     [Serializable]
     public class StateMask

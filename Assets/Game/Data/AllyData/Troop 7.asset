@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Troop 7
   m_EditorClassIdentifier: 
   Name: Troop7
-  health: 100
+  Health: 100
   AttackPower: 10
   Experience: 0
   Level: 0
