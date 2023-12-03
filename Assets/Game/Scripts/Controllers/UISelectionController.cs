@@ -12,7 +12,6 @@ namespace Game.Scripts.Controllers
         public List<UISelectionImageBehaviour> selectedUITroops;
         public UITextBehaviour textBehaviour;
         private const int DEFAULT_TROOP_SELECTION_COUNT = 3;
-
         public int troopSelectionCount
         {
             get
