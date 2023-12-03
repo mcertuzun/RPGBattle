@@ -11,8 +11,7 @@ namespace Game.Scripts
 {
     public class BattleManager : MonoBehaviour
     {
-        [Header("Teams")] [SerializeField] private List<TroopControllerBase> allyTroops;
-        [SerializeField] private List<TroopControllerBase> enemyTroops;
+        [Header("Teams")] 
         [SerializeField] private SerializableDictionary<TeamType, List<TroopControllerBase>> aliveTroops;
         public TroopDataList allTroops;
 
@@ -21,20 +20,25 @@ namespace Game.Scripts
 
         [Header("UI Selection")] [SerializeField]
         private UISelectionController uiSelectionController;
-
         [SerializeField] private List<Transform> TroopPositions;
         [SerializeField] private UIStateController uiStateController;
 
+        public void ShowLivings()
+        {
+            aliveTroops[TeamType.Ally].ForEach(x =>
+            {
+                Debug.Log(x.data.ToString());
+            });
+        }
         public int battleRound
         {
             get
             {
-                PlayerPrefs.GetInt(nameof(battleRound), 0);
+                _battleRound = PlayerPrefs.GetInt(nameof(battleRound), 0);
                 return _battleRound;
             }
             set
             {
-                uiSelectionController.selectedUITroops.ForEach(x => x.troopData.GainExperience(1));
                 _battleRound = value;
                 PlayerPrefs.SetInt(nameof(battleRound), _battleRound);
             }
@@ -42,7 +46,7 @@ namespace Game.Scripts
 
         private int _battleRound;
 
-
+     
         public void SetupTeams()
         {
             CreateAliveTroops();
@@ -69,7 +73,7 @@ namespace Game.Scripts
             SetTroops(TeamType.Enemy);
         }
 
-        private void CreateAllyTroops()
+        private void CreateTroops()
         {
             for (var i = 0; i < uiSelectionController.selectedUITroops.Count; i++)
             {
@@ -80,7 +84,7 @@ namespace Game.Scripts
 
         private void CreateAllTroops()
         {
-            CreateAllyTroops();
+            CreateTroops();
             aliveTroops[TeamType.Enemy].Add(allTroops.Value[^1].Create(TroopPositions[^1]));
         }
 
@@ -141,11 +145,20 @@ namespace Game.Scripts
 
         private void SetBattleVictory()
         {
+            ShowLivings();
+            for (var i = 0; i < aliveTroops[TeamType.Ally].Count; i++)
+            {
+                aliveTroops[TeamType.Ally][i].data.GainExperience(1);
+            }
             uiStateController.SetState((int)UIState.VictoryUI);
         }
 
         private void SetBattleDefeat()
         {
+            for (var i = 0; i < aliveTroops[TeamType.Ally].Count; i++)
+            {
+                aliveTroops[TeamType.Ally][i].data.GainExperience(1);
+            }
             uiStateController.SetState((int)UIState.DefeatUI);
         }
 
@@ -153,10 +166,10 @@ namespace Game.Scripts
         {
             uiStateController.SetState((int)UIState.SelectTroopsUI);
             battleRound++;
+           
             StopAllAliveTeamTroops();
             currentTeamType = TeamType.Ally;
             attackSignals.canPlayerHit = true;
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void RemoveTroopFromTargets(TroopControllerBase deadTroop)
@@ -178,7 +191,6 @@ namespace Game.Scripts
                 aliveTroops[TeamType.Ally][i].TroopDiedEvent -= TroopHasDied;
                 Destroy(aliveTroops[TeamType.Ally][i].gameObject);
             }
-
             aliveTroops.Clear();
         }
 

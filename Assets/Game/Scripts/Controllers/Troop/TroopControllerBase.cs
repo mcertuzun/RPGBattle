@@ -19,6 +19,9 @@ namespace Game.Scripts.Controllers.Troop
         [Header("Attack Settings")] [SerializeField]
         protected TroopAttackBehaviour attackBehaviour;
 
+        [Header("Level Settings")] [SerializeField]
+        protected TroopLevelBehaviour levelBehaviour;
+
         public delegate void UnitDiedEventHandler(TroopControllerBase unit);
 
         public event UnitDiedEventHandler TroopDiedEvent;
@@ -37,21 +40,24 @@ namespace Game.Scripts.Controllers.Troop
             var targets = targetsBehaviour.FilterTargetUnits(AttackType.Solo);
             attackBehaviour.AttackAction(targets, data.AttackPower);
         }
-
-      
-
+        
         public void ResetTroop()
         {
             SetHealth();
             targetsBehaviour.ResetTargets();
         }
-
+        
 
         #region TroopHealth
 
         public void SetHealth()
         {
             healthBehaviour.SetupCurrentHealth(data.Health);
+        }
+
+        public void GetHealth()
+        {
+            healthBehaviour.GetCurrentHealth();
         }
 
         public void RecieveTargetValue(float damage)

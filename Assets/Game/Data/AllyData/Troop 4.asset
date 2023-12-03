@@ -18,5 +18,4 @@ MonoBehaviour:
   Experience: 0
   Level: 0
   teamType: 0
-  AttackType: 0
   troopPrefab: {fileID: 2119325772025120773, guid: e6684ed5d28e055498990cb441a88527, type: 3}

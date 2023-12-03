@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Troop 2
   m_EditorClassIdentifier: 
   Name: Troop2
-  Health: 134
-  AttackPower: 107
-  Experience: 1
-  Level: 3
+  Health: 100
+  AttackPower: 10
+  Experience: 2
+  Level: 0
   teamType: 0
   troopPrefab: {fileID: 8557959872477782527, guid: 2f555b96280f9df4ca344b8c1cb1be8a, type: 3}

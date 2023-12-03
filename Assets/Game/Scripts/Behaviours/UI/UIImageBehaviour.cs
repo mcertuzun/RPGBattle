@@ -30,7 +30,7 @@ namespace Game.Scripts.Behaviours.UI
         {
             if (textSliderDisplay != null)
             {
-                textSliderDisplay.SetText(slider.fillAmount * 100 + "/" + maxHealth);
+                textSliderDisplay.SetText(maxHealth.ToString());
             }
         }
     }

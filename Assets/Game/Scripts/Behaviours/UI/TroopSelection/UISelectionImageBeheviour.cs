@@ -13,7 +13,6 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
 
         [Header("Info Popup")] [SerializeField]
         private DurationTimer durationTimer;
-
         private bool isPointerDown;
         private bool isPointerOver;
         public UISelectionInfoPopUpBehaviour infoPopUpBehaviour;
@@ -33,7 +32,6 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
         }
 
         public delegate void TroopSelectEventHandler(UISelectionImageBehaviour UITroop);
-
         public event TroopSelectEventHandler TroopSelectEvent;
 
         private void Awake()
@@ -42,6 +40,11 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
         }
 
         private void Update()
+        {
+            CheckPopUp();
+        }
+
+        private void CheckPopUp()
         {
             if (isPointerDown && isPointerOver)
             {

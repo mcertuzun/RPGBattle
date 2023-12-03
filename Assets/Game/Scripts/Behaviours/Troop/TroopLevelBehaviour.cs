@@ -6,26 +6,39 @@ namespace Game.Scripts.Behaviours.Troop
     public class TroopLevelBehaviour : MonoBehaviour
     {
         [Header("Level Info")] [SerializeField] [ReadOnly]
-        private int currentLevel;
-
+        private int Level;
+        [SerializeField] [ReadOnly]
+        private int Experience;
+        
         public delegate void LevelChangedEventHandler(int newLevel);
 
         public event LevelChangedEventHandler LevelChangedEvent;
 
-        public void SetupCurrentLevel(int newLevel)
+        public void SetupCurrentLevel(int newLevel, int experience)
         {
-            this.currentLevel = newLevel;
+            Level = newLevel;
+            Experience = experience;
         }
 
-        public void ChangeLevel(int newLevel)
+        public void LevelUp()
         {
-            this.currentLevel = newLevel;
-            LevelChangedEvent?.Invoke(newLevel);
+            this.Level++;
+            LevelChangedEvent?.Invoke(Level);
+        }
+        
+        public void GainExperience(int exp)
+        {
+            Experience += exp;
+            if (Experience >= 5)
+            {
+                LevelUp();
+                Experience -= 5;
+            }
         }
 
         public int GetCurrentLevel()
         {
-            return currentLevel;
+            return Level;
         }
     }
 }
