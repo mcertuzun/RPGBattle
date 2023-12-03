@@ -34,7 +34,7 @@ namespace Game.Scripts
             }
             set
             {
-                allTroops.Value.ForEach(x => x.GainExperience(1));
+                uiSelectionController.selectedUITroops.ForEach(x => x.troopData.GainExperience(1));
                 _battleRound = value;
                 PlayerPrefs.SetInt(nameof(battleRound), _battleRound);
             }

@@ -19,24 +19,42 @@ namespace Game.Scripts.Data
         {
             var troop = Instantiate(troopPrefab, troopPosition.position, Quaternion.identity, troopPosition)
                 .GetComponent<TroopControllerBase>();
+            troop.data.Load();
             return troop;
         }
+
 
         public void GainExperience(int expGain)
         {
             Experience += expGain;
-            while (Experience >= 5)
+            if (Experience >= 5)
             {
                 LevelUp();
                 Experience -= 5;
             }
+            Save();
         }
 
         private void LevelUp()
         {
             Level++;
-            AttackPower = Mathf.CeilToInt(AttackPower * 1.1f);
-            Health = Mathf.CeilToInt(Health * 1.1f);
+            AttackPower *= 1.1f;
+            Health *= 1.1f;
+            Save();
+        }
+
+        private void Save()
+        {
+            PlayerPrefs.SetInt(Name + nameof(Experience), Experience);
+            PlayerPrefs.SetFloat(Name + nameof(AttackPower), AttackPower);
+            PlayerPrefs.SetFloat(Name + nameof(Health), Health);
+        }
+
+        private void Load()
+        {
+            Experience = PlayerPrefs.GetInt(Name + nameof(Experience), 0);
+            AttackPower = PlayerPrefs.GetFloat(Name + nameof(AttackPower), 10);
+            Health = PlayerPrefs.GetFloat(Name + nameof(Health), 100);
         }
     }
 
