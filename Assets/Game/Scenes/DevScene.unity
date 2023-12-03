@@ -3145,7 +3145,7 @@ MonoBehaviour:
   - {fileID: 900378788}
   selectedUITroops: []
   textBehaviour: {fileID: 900361088}
-  RequiredTroopCount: 3
+  _troopSelectionCount: 0
 --- !u!114 &1163896362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3491,8 +3491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1840af4c1469f3419b1c1933343e147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allyTroops: []
-  enemyTroops: []
   aliveTroops:
     keys: 
   allTroops: {fileID: 11400000, guid: 760a5fdca0c6e4d4c868844d5baaef6b, type: 2}
@@ -3512,6 +3510,22 @@ MonoBehaviour:
   - {fileID: 1104229246}
   - {fileID: 1551967074}
   uiStateController: {fileID: 1683873449}
+  OnBattleRoundChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1163896361}
+        m_TargetAssemblyTypeName: Game.Scripts.Controllers.UISelectionController,
+          RPGScripts
+        m_MethodName: OnBattleCountChanged
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1332718538
 Transform:
   m_ObjectHideFlags: 0

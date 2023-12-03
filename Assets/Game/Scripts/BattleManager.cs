@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Game.Scripts.Controllers;
 using Game.Scripts.Controllers.Troop;
 using Game.Scripts.Data;
 using Game.Scripts.Utilities;
 using Game.Scripts.Utilities.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace Game.Scripts
 {
@@ -23,13 +25,6 @@ namespace Game.Scripts
         [SerializeField] private List<Transform> TroopPositions;
         [SerializeField] private UIStateController uiStateController;
 
-        public void ShowLivings()
-        {
-            aliveTroops[TeamType.Ally].ForEach(x =>
-            {
-                Debug.Log(x.data.ToString());
-            });
-        }
         public int battleRound
         {
             get
@@ -49,6 +44,7 @@ namespace Game.Scripts
      
         public void SetupTeams()
         {
+            
             CreateAliveTroops();
             AutoAssignTroopTeamTargets();
         }
@@ -145,31 +141,37 @@ namespace Game.Scripts
 
         private void SetBattleVictory()
         {
-            ShowLivings();
-            for (var i = 0; i < aliveTroops[TeamType.Ally].Count; i++)
-            {
-                aliveTroops[TeamType.Ally][i].data.GainExperience(1);
-            }
+            SetExperiences();
             uiStateController.SetState((int)UIState.VictoryUI);
         }
 
-        private void SetBattleDefeat()
+        private void SetExperiences()
         {
             for (var i = 0; i < aliveTroops[TeamType.Ally].Count; i++)
             {
                 aliveTroops[TeamType.Ally][i].data.GainExperience(1);
             }
+        }
+
+        private void SetBattleDefeat()
+        {
             uiStateController.SetState((int)UIState.DefeatUI);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                uiSelectionController.OnBattleCountChanged(++battleRound);
+            }
         }
 
         public void NextLevel()
         {
             uiStateController.SetState((int)UIState.SelectTroopsUI);
             battleRound++;
-           
+            uiSelectionController.OnBattleCountChanged(battleRound);
             StopAllAliveTeamTroops();
-            currentTeamType = TeamType.Ally;
-            attackSignals.canPlayerHit = true;
         }
 
         private void RemoveTroopFromTargets(TroopControllerBase deadTroop)
@@ -191,6 +193,8 @@ namespace Game.Scripts
                 aliveTroops[TeamType.Ally][i].TroopDiedEvent -= TroopHasDied;
                 Destroy(aliveTroops[TeamType.Ally][i].gameObject);
             }
+            currentTeamType = TeamType.Ally;
+            attackSignals.canPlayerHit = true;
             aliveTroops.Clear();
         }
 
