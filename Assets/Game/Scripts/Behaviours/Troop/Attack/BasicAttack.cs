@@ -17,7 +17,7 @@ namespace Game.Scripts.Behaviours.Troop.Attack
                 .OnComplete(() =>
                 {
                     target.RecieveTargetValue(damage);
-                    attackSignals.TriggerEnd(target.data.teamType == TeamType.Enemy);
+                    attackSignals.TriggerEnd(target.data.teamType == TeamType.Ally);
                     PoolManager.Fetch(damageFly.PoolName, transform.position, true).GetComponent<FlyingText>().PlayFlyTween(damage.ToString());
                     GetComponent<PoolObject>().Release();
                 });
