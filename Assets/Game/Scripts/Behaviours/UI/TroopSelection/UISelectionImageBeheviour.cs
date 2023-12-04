@@ -16,7 +16,7 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
         private bool isPointerDown;
         private bool isPointerOver;
         public UISelectionInfoPopUpBehaviour infoPopUpBehaviour;
-
+        public UIPopUpWaitBehaviour popUpWaitBehaviour;
         [Header("Selection")] [SerializeField] private Outline Outline;
 
         public bool isSelected
@@ -49,8 +49,10 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
             if (isPointerDown && isPointerOver)
             {
                 durationTimer.UpdateTimer();
+                popUpWaitBehaviour.Loading(Input.mousePosition, durationTimer.GetPolledTime()/infoPopUpBehaviour.showInfoPopUpDelay);
                 if (durationTimer.HasElapsed())
                 {
+                    popUpWaitBehaviour.Close();
                     if (!infoPopUpBehaviour.isOpened)
                         infoPopUpBehaviour.Open(troopData);
                     else
@@ -72,13 +74,15 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
         public void OnPointerDown(PointerEventData eventData)
         {
             isPointerDown = true;
+            popUpWaitBehaviour.Open();
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
             isPointerDown = false;
-            durationTimer.Reset();
+            popUpWaitBehaviour.Close();
             infoPopUpBehaviour.Close();
+            durationTimer.Reset();
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -89,6 +93,7 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
         public void OnPointerExit(PointerEventData eventData)
         {
             isPointerOver = false;
+            popUpWaitBehaviour.Close();
             infoPopUpBehaviour.Close();
             durationTimer.Reset();
         }

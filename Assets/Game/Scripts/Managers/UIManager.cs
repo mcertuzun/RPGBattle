@@ -4,7 +4,7 @@ using Game.Scripts.Utilities.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Game.Scripts
+namespace Game.Scripts.Managers
 {
     public class UIManager : MonoBehaviour
     {
@@ -12,8 +12,6 @@ namespace Game.Scripts
         [SerializeField] private UIStateController uiStateController;
         [SerializeField] private TroopDataList allyTroops;
         public UnityEvent OnNextBattleEvent;
-
-
 
         public void OnTroopSelection()
         {

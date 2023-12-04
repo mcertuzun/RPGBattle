@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Game.Scripts.Utilities.Pooling;
 using TMPro;
 using UnityEngine;
 
@@ -12,18 +13,19 @@ namespace Game.Scripts.Behaviours.UI
             textDisplay.SetText(newText);
         }
 
+      
         public void AlertText()
         {
-            PlayTween();
+            PlayAlertTween();
         }
 
-        private void PlayTween()
+        private void PlayAlertTween()
         {
             var originalColor = textDisplay.color;
-            if (DOTween.IsTweening(textDisplay)) return;
-            textDisplay.DOColor(Color.red, 0.5f).OnComplete(() => { textDisplay.DOColor(originalColor, 0.5f); })
-                .SetId("ColorChange");
+            if (textDisplay != null && DOTween.IsTweening(textDisplay) || textDisplay == null) return;
+            textDisplay.DOColor(Color.red, 0.5f).OnComplete(() => { textDisplay.DOColor(originalColor, 0.5f); });
             textDisplay.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.5f, 1);
         }
+     
     }
 }

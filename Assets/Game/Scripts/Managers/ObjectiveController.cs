@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-namespace Game.Scripts
+namespace Game.Scripts.Managers
 {
     public class ObjectiveController : MonoBehaviour
     {
-        [SerializeField] private TeamController teamController;
+        [FormerlySerializedAs("teamController")] [SerializeField] private TeamManager teamManager;
         public UnityEvent OnVictoryEvent, OnDefeatEvent;
 
         private void OnEnemyTroopEliminated(int count)
@@ -29,16 +30,16 @@ namespace Game.Scripts
             return count <= 0;
         }
 
-        public void Setup()
+        public void OnEnable()
         {
-            teamController.OnAllyTroopEliminated += OnAllyTroopEliminated;
-            teamController.OnEnemyTroopEliminated += OnEnemyTroopEliminated;
+            teamManager.OnAllyTroopEliminated += OnAllyTroopEliminated;
+            teamManager.OnEnemyTroopEliminated += OnEnemyTroopEliminated;
         }
 
         private void OnDisable()
         {
-            teamController.OnAllyTroopEliminated -= OnAllyTroopEliminated;
-            teamController.OnEnemyTroopEliminated -= OnEnemyTroopEliminated;
+            teamManager.OnAllyTroopEliminated -= OnAllyTroopEliminated;
+            teamManager.OnEnemyTroopEliminated -= OnEnemyTroopEliminated;
         }
     }
 }

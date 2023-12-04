@@ -5,9 +5,9 @@ using Game.Scripts.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Game.Scripts
+namespace Game.Scripts.Managers
 {
-    public class TeamController : MonoBehaviour
+    public class TeamManager : MonoBehaviour
     {
         private Dictionary<TeamType, List<TroopControllerBase>> aliveTroops;
         [Header("Data")] [SerializeField] private TroopDataList allyTroops, enemyTroops;

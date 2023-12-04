@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Scripts.Behaviours.Troop
+namespace Game.Scripts.Behaviours.Troop.DamageDisplay
 {
     public class TroopDamageDisplayBehaviour : MonoBehaviour
     {

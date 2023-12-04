@@ -1,13 +1,15 @@
 ﻿using Game.Scripts.Data;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-namespace Game.Scripts
+namespace Game.Scripts.Managers
 {
-    public class BattleController : MonoBehaviour
+    public class BattleManager : MonoBehaviour
     {
-        [SerializeField] private TeamController teamController;
+        [FormerlySerializedAs("teamController")] [SerializeField] private TeamManager teamManager;
         [SerializeField] private ObjectiveController objectiveController;
+
         public int battleRound
         {
             get
@@ -21,22 +23,20 @@ namespace Game.Scripts
                 PlayerPrefs.SetInt(nameof(battleRound), _battleRound);
             }
         }
+
         private int _battleRound;
-        
-        [Header("Events")]
-        public UnityEvent<int> OnNextBattle;
+
+        [Header("Events")] public UnityEvent<int> OnNextBattle;
         public UnityEvent OnStartBattle;
         public UnityEvent OnStopBattle;
-        
+
         //TODO: Just create AIController
-        [Header("AI Settings")] 
-        public TeamType currentTeamType = TeamType.Ally;
+        [Header("AI Settings")] public TeamType currentTeamType = TeamType.Ally;
         public AttackSignals attackSignals;
-        
+
         public void Setup()
         {
-            teamController.Setup();
-            objectiveController.Setup();
+            teamManager.Setup();
             SetupAI();
         }
 
@@ -51,24 +51,25 @@ namespace Game.Scripts
             SetNextTeamType();
             if (currentTeamType == TeamType.Enemy)
             {
-                teamController.GetRandomEnemy().Hit(false);
+                teamManager.GetRandomEnemy().Hit(false);
             }
         }
 
         public void OnBattleEnd()
         {
-            battleRound++;
         }
-        
+
         public void NextBattle()
         {
+            battleRound++;
             OnNextBattle?.Invoke(battleRound);
         }
-        
+
         private void SetNextTeamType()
         {
             currentTeamType = currentTeamType == TeamType.Ally ? TeamType.Enemy : TeamType.Ally;
         }
+
         private void OnEnable() => attackSignals.AttackEndEvent += OnAttackFinished;
         private void OnDisable() => attackSignals.AttackEndEvent -= OnAttackFinished;
     }

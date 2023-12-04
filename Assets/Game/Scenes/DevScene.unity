@@ -196,21 +196,6 @@ MonoBehaviour:
   uiSelectionController: {fileID: 1163896361}
   uiStateController: {fileID: 1683873449}
   allyTroops: {fileID: 11400000, guid: 760a5fdca0c6e4d4c868844d5baaef6b, type: 2}
-  OnFirstBattleEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 37903111}
-        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
-        m_MethodName: OnNextBattle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnNextBattleEvent:
     m_PersistentCalls:
       m_Calls:
@@ -288,10 +273,10 @@ RectTransform:
   - {fileID: 774872170}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1325, y: -300}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84469415
 MonoBehaviour:
@@ -307,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: 165a8aefcd376c94fbe14bdb6400e072, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 84469416}
 --- !u!114 &84469416
 MonoBehaviour:
@@ -495,10 +481,10 @@ RectTransform:
   - {fileID: 1459395856}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1325, y: -680}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &156322245
 MonoBehaviour:
@@ -514,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: af031bb3c7997f94481b29db38c803ac, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 156322246}
 --- !u!114 &156322246
 MonoBehaviour:
@@ -678,10 +665,10 @@ RectTransform:
   - {fileID: 167480744}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 625, y: -680}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &174576140
 MonoBehaviour:
@@ -697,6 +684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: ed6ce1ca781d3004b93fc808b3c3e101, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 174576141}
 --- !u!114 &174576141
 MonoBehaviour:
@@ -781,38 +769,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 24432608}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &297427472
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 297427473}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &297427473
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297427472}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 938.1806, y: 712.857, z: -5.4471903}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1332718538}
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321033468
 GameObject:
@@ -1093,10 +1049,10 @@ RectTransform:
   - {fileID: 1187243088}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -680}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370647932
 MonoBehaviour:
@@ -1112,6 +1068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: 659a88ab49fbdeb499e011fb7c8d3a6b, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 370647933}
 --- !u!114 &370647933
 MonoBehaviour:
@@ -1210,7 +1167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec803b4d59c496c983ccc4dd41e9daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamController: {fileID: 1904706169}
+  teamManager: {fileID: 1904706169}
   OnVictoryEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1250,6 +1207,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1234167599}
+        m_TargetAssemblyTypeName: Game.Scripts.BattleController, RPGScripts
+        m_MethodName: OnBattleEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 809389422}
+        m_TargetAssemblyTypeName: Game.Scripts.Utilities.Pooling.PoolManager, RPGScripts
+        m_MethodName: ReleaseAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDefeatEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1268,6 +1249,30 @@ MonoBehaviour:
       - m_Target: {fileID: 1904706169}
         m_TargetAssemblyTypeName: Game.Scripts.TeamController, RPGScripts
         m_MethodName: RemoveAllAliveTroops
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1234167599}
+        m_TargetAssemblyTypeName: Game.Scripts.BattleController, RPGScripts
+        m_MethodName: OnBattleEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 809389422}
+        m_TargetAssemblyTypeName: Game.Scripts.Utilities.Pooling.PoolManager, RPGScripts
+        m_MethodName: ReleaseAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1580,10 +1585,10 @@ RectTransform:
   - {fileID: 491006305}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 275, y: -300}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561929668
 MonoBehaviour:
@@ -1652,7 +1657,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: 25fde063022d41040b459fe67122896d, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 561929668}
+--- !u!1 &684853747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684853748}
+  - component: {fileID: 684853749}
+  m_Layer: 5
+  m_Name: Loading
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &684853748
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684853747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 959839376}
+  m_Father: {fileID: 948310008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -559, y: -303}
+  m_SizeDelta: {x: 255.6947, y: 313.50565}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &684853749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684853747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71191b100ff04f7fa798ec382725c00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadImage: {fileID: 959839377}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,10 +1838,10 @@ RectTransform:
   - {fileID: 1647207789}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 975, y: -300}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713800528
 MonoBehaviour:
@@ -1801,6 +1857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: b5cc772025196f14481e68bdd383eaaa, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 713800529}
 --- !u!114 &713800529
 MonoBehaviour:
@@ -1938,21 +1995,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234167599}
-        m_TargetAssemblyTypeName: Game.Scripts.BattleController, RPGScripts
-        m_MethodName: NextBattle
+      - m_Target: {fileID: 1904706169}
+        m_TargetAssemblyTypeName: Game.Scripts.TeamController, RPGScripts
+        m_MethodName: RemoveAllAliveTroops
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 37903111}
         m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
-        m_MethodName: OnNextBattle
+        m_MethodName: OnTroopSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2121,6 +2178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CreationList:
   - {fileID: 11400000, guid: ad23ad1e68d2b634486c4f35e7ed3de1, type: 2}
+  - {fileID: 11400000, guid: eb607f2607db01e49b94f1183febb623, type: 2}
   pools: []
   createOnStart: 1
   SetParentNull: 1
@@ -2422,10 +2480,10 @@ RectTransform:
   - {fileID: 1575091722}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1675, y: -680}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &900378788
 MonoBehaviour:
@@ -2441,7 +2499,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: a169ed271d49ebe4f916de60e94a6743, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
-  Outline: {fileID: 900378789}
+  popUpWaitBehaviour: {fileID: 684853749}
+  Outline: {fileID: 156322246}
 --- !u!114 &900378789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2530,6 +2589,7 @@ RectTransform:
   - {fileID: 1798196168}
   - {fileID: 1699945710}
   - {fileID: 557186500}
+  - {fileID: 684853748}
   m_Father: {fileID: 1163896360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2574,6 +2634,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948310007}
+  m_CullTransparentMesh: 1
+--- !u!1 &959839375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959839376}
+  - component: {fileID: 959839378}
+  - component: {fileID: 959839377}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &959839376
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959839375}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 684853748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 125, y: 147}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &959839377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959839375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0.64705884}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d1f3c260f359f7d41b3b345be1948131, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &959839378
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959839375}
   m_CullTransparentMesh: 1
 --- !u!1 &963194225
 GameObject:
@@ -2702,10 +2837,10 @@ RectTransform:
   - {fileID: 2014684835}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 625, y: -300}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &980048589
 MonoBehaviour:
@@ -2721,6 +2856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: 4595f605db4fe5442a14239ab8125a3d, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 980048590}
 --- !u!114 &980048590
 MonoBehaviour:
@@ -2810,10 +2946,10 @@ RectTransform:
   - {fileID: 1527967575}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 975, y: -680}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004366648
 MonoBehaviour:
@@ -2829,6 +2965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: e7559f5108f50ed4da4ccb4e5068a5c2, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 1004366649}
 --- !u!114 &1004366649
 MonoBehaviour:
@@ -3380,7 +3517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1163896360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3427,6 +3564,33 @@ MonoBehaviour:
   selectedUITroops: []
   textBehaviour: {fileID: 900361088}
   _troopSelectionCount: 0
+  OnClickEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 37903111}
+        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
+        m_MethodName: OnNextBattle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1234167599}
+        m_TargetAssemblyTypeName: Game.Scripts.BattleController, RPGScripts
+        m_MethodName: Setup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1163896362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3741,7 +3905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5262bad807224357a468024db1aa684b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamController: {fileID: 1904706169}
+  teamManager: {fileID: 1904706169}
   objectiveController: {fileID: 418664023}
   OnNextBattle:
     m_PersistentCalls:
@@ -3812,67 +3976,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 24432608}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1332718536
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1332718538}
-  - component: {fileID: 1332718537}
-  m_Layer: 0
-  m_Name: BattleManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1332718537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332718536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1840af4c1469f3419b1c1933343e147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allTroops: {fileID: 11400000, guid: 760a5fdca0c6e4d4c868844d5baaef6b, type: 2}
-  currentTeamType: 0
-  attackSignals: {fileID: 11400000, guid: 17e207bccc76d44479c97941ee697fd4, type: 2}
-  uiSelectionController: {fileID: 1163896361}
-  TroopPositions:
-  - {fileID: 2127918894}
-  - {fileID: 1969326797}
-  - {fileID: 123201327}
-  - {fileID: 1183028805}
-  - {fileID: 334950982}
-  - {fileID: 1619688296}
-  - {fileID: 1208148639}
-  - {fileID: 1236077894}
-  - {fileID: 235100780}
-  - {fileID: 1104229246}
-  - {fileID: 1551967074}
-  uiStateController: {fileID: 1683873449}
---- !u!4 &1332718538
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332718536}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -940.1806, y: -712.857, z: 5.4471903}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 297427473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1459395855
 GameObject:
@@ -4751,7 +4854,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4878,9 +4981,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 37903111}
-        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
-        m_MethodName: OnNextBattle
+      - m_Target: {fileID: 1163896361}
+        m_TargetAssemblyTypeName: Game.Scripts.Controllers.UISelectionController,
+          RPGScripts
+        m_MethodName: OnClickedBattleFilter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5266,10 +5370,10 @@ RectTransform:
   - {fileID: 1138004651}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1675, y: -300}
-  m_SizeDelta: {x: 250, y: 250}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998061402
 MonoBehaviour:
@@ -5285,6 +5389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   troopData: {fileID: 11400000, guid: 8154dba50f3aafd4ea945c3ef060fd85, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
+  popUpWaitBehaviour: {fileID: 684853749}
   Outline: {fileID: 1998061403}
 --- !u!114 &1998061403
 MonoBehaviour:
@@ -5605,9 +5710,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234167599}
-        m_TargetAssemblyTypeName: Game.Scripts.BattleController, RPGScripts
-        m_MethodName: NextBattle
+      - m_Target: {fileID: 1904706169}
+        m_TargetAssemblyTypeName: Game.Scripts.TeamController, RPGScripts
+        m_MethodName: RemoveAllAliveTroops
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5619,7 +5724,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 37903111}
         m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
-        m_MethodName: OnNextBattle
+        m_MethodName: OnTroopSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5677,5 +5782,4 @@ SceneRoots:
   - {fileID: 809389421}
   - {fileID: 128374356}
   - {fileID: 1683873448}
-  - {fileID: 297427473}
   - {fileID: 839395290}

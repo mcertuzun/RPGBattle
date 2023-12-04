@@ -2,7 +2,7 @@ using Game.Scripts.Data;
 using TMPro;
 using UnityEngine;
 
-namespace Game.Scripts.Behaviours.UI
+namespace Game.Scripts.Behaviours.UI.TroopSelection
 {
     public class UISelectionInfoPopUpBehaviour : MonoBehaviour
     {

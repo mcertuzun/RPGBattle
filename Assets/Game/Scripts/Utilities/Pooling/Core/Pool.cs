@@ -76,7 +76,7 @@ namespace Assets.Library.Pooling
                 if (isActive)
                     toReturn.SetActive(true);
 
-                toReturn.transform.parent = null;
+                toReturn.transform.SetParent(null);
             }
 
             return toReturn;

@@ -1,7 +1,7 @@
 ﻿using Game.Scripts.Data;
 using UnityEngine;
 
-namespace Game.Scripts
+namespace Game.Scripts.Managers
 {
     public class LevelManager : MonoBehaviour
     {
