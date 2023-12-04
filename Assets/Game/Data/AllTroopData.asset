@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f314f8589f574f0eb4b52ded8ec33fae, type: 3}
-  m_Name: TroopDataList
+  m_Name: AllTroopData
   m_EditorClassIdentifier: 
   Value:
   - {fileID: 11400000, guid: 25fde063022d41040b459fe67122896d, type: 2}
@@ -23,4 +23,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e7559f5108f50ed4da4ccb4e5068a5c2, type: 2}
   - {fileID: 11400000, guid: af031bb3c7997f94481b29db38c803ac, type: 2}
   - {fileID: 11400000, guid: a169ed271d49ebe4f916de60e94a6743, type: 2}
-  - {fileID: 11400000, guid: 316e349d06f37e545b8b3af2c3e12ab9, type: 2}

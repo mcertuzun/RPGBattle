@@ -3,6 +3,7 @@ using Game.Scripts.Behaviours.UI;
 using Game.Scripts.Behaviours.UI.TroopSelection;
 using Game.Scripts.Utilities.ReadOnlyDrawer;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.Scripts.Controllers
 {
@@ -12,6 +13,7 @@ namespace Game.Scripts.Controllers
         public List<UISelectionImageBehaviour> selectedUITroops;
         public UITextBehaviour textBehaviour;
         private const int DEFAULT_TROOP_SELECTION_COUNT = 3;
+
         public int troopSelectionCount
         {
             get
@@ -27,6 +29,8 @@ namespace Game.Scripts.Controllers
         }
 
         [ReadOnly] [SerializeField] private int _troopSelectionCount;
+
+        public UnityEvent OnClickEvent;
 
         private void Awake()
         {
@@ -74,6 +78,18 @@ namespace Game.Scripts.Controllers
                 {
                     textBehaviour.AlertText();
                 }
+            }
+        }
+
+        public void OnClickedBattleFilter()
+        {
+            if (selectedUITroops.Count < troopSelectionCount)
+            {
+                textBehaviour.AlertText();
+            }
+            else
+            {
+                OnClickEvent?.Invoke();
             }
         }
 

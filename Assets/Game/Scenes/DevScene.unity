@@ -162,8 +162,96 @@ Transform:
   - {fileID: 1236077894}
   - {fileID: 235100780}
   - {fileID: 1104229246}
-  - {fileID: 1551967074}
   m_Father: {fileID: 817774136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &37903110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37903112}
+  - component: {fileID: 37903111}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &37903111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37903110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2531425fdf44b31b956652cb13f0a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSelectionController: {fileID: 1163896361}
+  uiStateController: {fileID: 1683873449}
+  allyTroops: {fileID: 11400000, guid: 760a5fdca0c6e4d4c868844d5baaef6b, type: 2}
+  OnFirstBattleEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 37903111}
+        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
+        m_MethodName: OnNextBattle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnNextBattleEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234167599}
+        m_TargetAssemblyTypeName: Game.Scripts.BattleController, RPGScripts
+        m_MethodName: NextBattle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 37903111}
+        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
+        m_MethodName: OnNextBattle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &37903112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37903110}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 839395290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &84469413
 GameObject:
@@ -709,7 +797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &297427473
 Transform:
   m_ObjectHideFlags: 0
@@ -724,7 +812,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1332718538}
-  - {fileID: 852857134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321033468
@@ -1079,6 +1166,117 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370647930}
   m_CullTransparentMesh: 1
+--- !u!1 &418664021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418664022}
+  - component: {fileID: 418664023}
+  m_Layer: 0
+  m_Name: ObjectiveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &418664022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418664021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 839395290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418664023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418664021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec803b4d59c496c983ccc4dd41e9daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamController: {fileID: 1904706169}
+  OnVictoryEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1023310310}
+        m_TargetAssemblyTypeName: Game.Scripts.LevelManager, RPGScripts
+        m_MethodName: SetExperiences
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 37903111}
+        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
+        m_MethodName: OnVictory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1904706169}
+        m_TargetAssemblyTypeName: Game.Scripts.TeamController, RPGScripts
+        m_MethodName: RemoveAllAliveTroops
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDefeatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 37903111}
+        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
+        m_MethodName: OnDefeat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1904706169}
+        m_TargetAssemblyTypeName: Game.Scripts.TeamController, RPGScripts
+        m_MethodName: RemoveAllAliveTroops
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &491006304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,10 +1938,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1683873449}
-        m_TargetAssemblyTypeName: Game.Scripts.Utilities.UI.UIStateController, Assembly-CSharp
-        m_MethodName: SetState
-        m_Mode: 3
+      - m_Target: {fileID: 1234167599}
+        m_TargetAssemblyTypeName: Game.Scripts.BattleController, RPGScripts
+        m_MethodName: NextBattle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1752,9 +1950,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1332718537}
-        m_TargetAssemblyTypeName: Game.Scripts.Behaviours.BattleManager, Assembly-CSharp
-        m_MethodName: NextLevel
+      - m_Target: {fileID: 37903111}
+        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
+        m_MethodName: OnNextBattle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1959,6 +2157,43 @@ Transform:
   - {fileID: 1519392716}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &839395289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839395290}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &839395290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839395289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.6321154, y: 1.9630802, z: -0.0131655345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1234167600}
+  - {fileID: 37903112}
+  - {fileID: 1904706170}
+  - {fileID: 418664022}
+  - {fileID: 1023310309}
+  - {fileID: 852857134}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852857133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,12 +2219,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852857133}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 934.54846, y: 710.8939, z: -5.434025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 297427473}
+  m_Father: {fileID: 839395290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &852857135
 MonoBehaviour:
@@ -2648,6 +2883,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004366646}
   m_CullTransparentMesh: 1
+--- !u!1 &1023310308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1023310309}
+  - component: {fileID: 1023310310}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1023310309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023310308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 839395290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1023310310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023310308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd65af36c9774dbb80393e06c08d86f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aliveAllyList: {fileID: 11400000, guid: 760a5fdca0c6e4d4c868844d5baaef6b, type: 2}
+  experiencePerBattle: 1
 --- !u!1 &1075812004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3431,6 +3712,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224122263}
   m_CullTransparentMesh: 1
+--- !u!1 &1234167598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234167600}
+  - component: {fileID: 1234167599}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1234167599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234167598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5262bad807224357a468024db1aa684b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamController: {fileID: 1904706169}
+  objectiveController: {fileID: 418664023}
+  OnNextBattle:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1163896361}
+        m_TargetAssemblyTypeName: Game.Scripts.Controllers.UISelectionController,
+          RPGScripts
+        m_MethodName: OnBattleCountChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStartBattle:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStopBattle:
+    m_PersistentCalls:
+      m_Calls: []
+  currentTeamType: 0
+  attackSignals: {fileID: 11400000, guid: 17e207bccc76d44479c97941ee697fd4, type: 2}
+--- !u!4 &1234167600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234167598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 839395290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236077893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3478,7 +3829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1332718537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3491,8 +3842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1840af4c1469f3419b1c1933343e147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aliveTroops:
-    keys: 
   allTroops: {fileID: 11400000, guid: 760a5fdca0c6e4d4c868844d5baaef6b, type: 2}
   currentTeamType: 0
   attackSignals: {fileID: 11400000, guid: 17e207bccc76d44479c97941ee697fd4, type: 2}
@@ -3510,22 +3859,6 @@ MonoBehaviour:
   - {fileID: 1104229246}
   - {fileID: 1551967074}
   uiStateController: {fileID: 1683873449}
-  OnBattleRoundChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1163896361}
-        m_TargetAssemblyTypeName: Game.Scripts.Controllers.UISelectionController,
-          RPGScripts
-        m_MethodName: OnBattleCountChanged
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &1332718538
 Transform:
   m_ObjectHideFlags: 0
@@ -3644,7 +3977,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1551967074}
   m_Father: {fileID: 817774136}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1527967574
@@ -3866,7 +4200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1551967074}
   m_Layer: 0
-  m_Name: TroopPosition_11
+  m_Name: EnemyTroopPosition_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3881,11 +4215,11 @@ Transform:
   m_GameObject: {fileID: 1551967073}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 24432608}
+  m_Father: {fileID: 1519392716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560337792
 GameObject:
@@ -4417,7 +4751,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -4544,22 +4878,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1332718537}
-        m_TargetAssemblyTypeName: Game.Scripts.Behaviours.BattleManager, Assembly-CSharp
-        m_MethodName: SetupTeams
+      - m_Target: {fileID: 37903111}
+        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
+        m_MethodName: OnNextBattle
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1683873449}
-        m_TargetAssemblyTypeName: Game.Scripts.Utilities.UI.UIStateController, Assembly-CSharp
-        m_MethodName: SetState
-        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4685,6 +5007,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798196167}
   m_CullTransparentMesh: 1
+--- !u!1 &1904706168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1904706170}
+  - component: {fileID: 1904706169}
+  m_Layer: 0
+  m_Name: TeamManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1904706169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904706168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee441fbdff242708e264de7eb227e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allyTroops: {fileID: 11400000, guid: 760a5fdca0c6e4d4c868844d5baaef6b, type: 2}
+  enemyTroops: {fileID: 11400000, guid: ba71394af43167a41a023ad023ad03e1, type: 2}
+  AllyPositions:
+  - {fileID: 2127918894}
+  - {fileID: 1969326797}
+  - {fileID: 123201327}
+  - {fileID: 1183028805}
+  - {fileID: 334950982}
+  - {fileID: 1619688296}
+  - {fileID: 1208148639}
+  - {fileID: 1236077894}
+  - {fileID: 235100780}
+  - {fileID: 1104229246}
+  EnemyPositions:
+  - {fileID: 1551967074}
+--- !u!4 &1904706170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904706168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 839395290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922572825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5224,21 +5605,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1683873449}
-        m_TargetAssemblyTypeName: Game.Scripts.Utilities.UI.UIStateController, Assembly-CSharp
-        m_MethodName: SetState
-        m_Mode: 3
+      - m_Target: {fileID: 1234167599}
+        m_TargetAssemblyTypeName: Game.Scripts.BattleController, RPGScripts
+        m_MethodName: NextBattle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1332718537}
-        m_TargetAssemblyTypeName: Game.Scripts.Behaviours.BattleManager, Assembly-CSharp
-        m_MethodName: NextLevel
+      - m_Target: {fileID: 37903111}
+        m_TargetAssemblyTypeName: Game.Scripts.UIManager, RPGScripts
+        m_MethodName: OnNextBattle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5297,3 +5678,4 @@ SceneRoots:
   - {fileID: 128374356}
   - {fileID: 1683873448}
   - {fileID: 297427473}
+  - {fileID: 839395290}
