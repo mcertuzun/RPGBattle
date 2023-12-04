@@ -1,7 +1,6 @@
-﻿using Assets.Library.Pooling;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Game.Scripts.Utilities.Pooling
+namespace Game.Scripts.Utilities.Pooling.Core
 {
     public class PoolObject : MonoBehaviour
     {

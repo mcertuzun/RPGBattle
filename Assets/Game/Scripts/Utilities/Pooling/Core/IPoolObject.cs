@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Assets.Library.Pooling
+﻿namespace Game.Scripts.Utilities.Pooling.Core
 {
     public interface IPoolObject
     {

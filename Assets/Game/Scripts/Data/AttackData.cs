@@ -2,7 +2,6 @@
 
 namespace Game.Scripts.Data
 {
-    
     [CreateAssetMenu(fileName = "AttackData", menuName = "SO/AttackData", order = 0)]
     public class AttackData : ScriptableObject
     {

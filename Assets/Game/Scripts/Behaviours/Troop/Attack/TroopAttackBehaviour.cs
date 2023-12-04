@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Scripts.Controllers.Troop;
-using Game.Scripts.Utilities.Pooling;
+using Game.Scripts.Utilities.Pooling.Core;
 using UnityEngine;
 
 namespace Game.Scripts.Behaviours.Troop.Attack

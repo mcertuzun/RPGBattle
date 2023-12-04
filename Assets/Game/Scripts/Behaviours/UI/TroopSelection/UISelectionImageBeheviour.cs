@@ -1,5 +1,5 @@
 ﻿using Game.Scripts.Data;
-using Game.Scripts.Timer;
+using Game.Scripts.Utilities.Timer;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,6 +13,7 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
 
         [Header("Info Popup")] [SerializeField]
         private DurationTimer durationTimer;
+
         private bool isPointerDown;
         private bool isPointerOver;
         public UISelectionInfoPopUpBehaviour infoPopUpBehaviour;
@@ -21,17 +22,12 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
 
         public bool isSelected
         {
-            get
-            {
-                return Outline.enabled;
-            }
-            set
-            {
-                Outline.enabled = value;
-            }
+            get { return Outline.enabled; }
+            set { Outline.enabled = value; }
         }
 
         public delegate void TroopSelectEventHandler(UISelectionImageBehaviour UITroop);
+
         public event TroopSelectEventHandler TroopSelectEvent;
 
         private void Awake()
@@ -49,7 +45,8 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
             if (isPointerDown && isPointerOver)
             {
                 durationTimer.UpdateTimer();
-                popUpWaitBehaviour.Loading(Input.mousePosition, durationTimer.GetPolledTime()/infoPopUpBehaviour.showInfoPopUpDelay);
+                popUpWaitBehaviour.Loading(Input.mousePosition,
+                    durationTimer.GetPolledTime() / infoPopUpBehaviour.showInfoPopUpDelay);
                 if (durationTimer.HasElapsed())
                 {
                     popUpWaitBehaviour.Close();

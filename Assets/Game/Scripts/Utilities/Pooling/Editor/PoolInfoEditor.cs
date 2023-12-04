@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Game.Scripts.Utilities.Pooling.Core;
 using UnityEditor;
-using Assets.Library.Pooling;
-using Game.Scripts.Utilities.Pooling;
+using UnityEngine;
 
-namespace Assets.Library.Pooling.Editor
+namespace Game.Scripts.Utilities.Pooling.Editor
 {
     [CustomEditor(typeof(PoolInfo))]
     public class PoolInfoEditor : UnityEditor.Editor
@@ -14,7 +11,7 @@ namespace Assets.Library.Pooling.Editor
         {
             PoolInfo poolInfo = target as PoolInfo;
 
-            if (poolInfo.Prefab != null)
+            if (poolInfo != null && poolInfo.Prefab != null)
                 if (poolInfo.Prefab.GetComponent<IPoolObject>() == null)
                 {
 

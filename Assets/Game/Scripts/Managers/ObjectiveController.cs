@@ -6,7 +6,9 @@ namespace Game.Scripts.Managers
 {
     public class ObjectiveController : MonoBehaviour
     {
-        [FormerlySerializedAs("teamController")] [SerializeField] private TeamManager teamManager;
+        [FormerlySerializedAs("teamController")] [SerializeField]
+        private TeamManager teamManager;
+
         public UnityEvent OnVictoryEvent, OnDefeatEvent;
 
         private void OnEnemyTroopEliminated(int count)

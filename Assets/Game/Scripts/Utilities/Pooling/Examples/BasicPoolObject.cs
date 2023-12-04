@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Game.Scripts.Utilities.Pooling.Core;
+using UnityEngine;
 
-namespace Assets.Library.Pooling
+namespace Game.Scripts.Utilities.Pooling.Examples
 {
     public class BasicPoolObject : MonoBehaviour, IPoolObject
     {

@@ -1,4 +1,5 @@
-﻿using Game.Scripts.Controllers.Troop;
+﻿using System;
+using Game.Scripts.Controllers.Troop;
 using UnityEngine;
 
 namespace Game.Scripts.Data
@@ -8,18 +9,13 @@ namespace Game.Scripts.Data
     {
         public string Name;
         public float Health;
-
-        public override string ToString()
-        {
-            return $"{base.ToString()}, {nameof(Name)}: {Name}, {nameof(Health)}: {Health}, {nameof(AttackPower)}: {AttackPower}, {nameof(Experience)}: {Experience}, {nameof(Level)}: {Level}";
-        }
-
         public float AttackPower;
         public int Experience;
         public int Level;
         public TeamType teamType;
         public GameObject troopPrefab;
 
+        public event Action<int> OnLevelUp;
         public TroopControllerBase Create(Transform troopPosition)
         {
             var troop = Instantiate(troopPrefab, troopPosition.position, Quaternion.identity, troopPosition)
@@ -27,7 +23,7 @@ namespace Game.Scripts.Data
             troop.data.Load();
             return troop;
         }
-        
+
         public void GainExperience(int expGain)
         {
             Experience += expGain;
@@ -37,7 +33,7 @@ namespace Game.Scripts.Data
             }
         }
 
-        private void LevelUp()
+        public void LevelUp()
         {
             Level++;
             AttackPower *= 1.1f;
@@ -68,6 +64,12 @@ namespace Game.Scripts.Data
             PlayerPrefs.DeleteKey(Name + nameof(AttackPower));
             PlayerPrefs.DeleteKey(Name + nameof(Health));
             PlayerPrefs.DeleteKey(Name + nameof(Level));
+        }
+
+        public override string ToString()
+        {
+            return
+                $"{base.ToString()}, {nameof(Name)}: {Name}, {nameof(Health)}: {Health}, {nameof(AttackPower)}: {AttackPower}, {nameof(Experience)}: {Experience}, {nameof(Level)}: {Level}";
         }
     }
 

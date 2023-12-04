@@ -34,30 +34,34 @@ namespace Game.Scripts.Controllers.Troop
                 SetHealth();
             }
         }
+        public void SetTroopReady(Transform spawnTransform)
+        {
+            transform.position = spawnTransform.position;
+            transform.SetParent(spawnTransform);
+            
+            healthBehaviour.SetupCurrentHealth(data.Health);
+            levelBehaviour.SetupCurrentLevel(data.Level);
+        }
 
+        public void ResetTroop(Transform spawnTransform)
+        {
+            targetsBehaviour.ResetTargets();
+            transform.position = spawnTransform.position;
+            transform.SetParent(null);
+        }
+        
         public void Hit(bool isPlayer = true)
         {
             var targets = targetsBehaviour.FilterTargetUnits(AttackType.Solo);
             attackBehaviour.AttackAction(targets, data.AttackPower);
         }
-        
-        public void ResetTroop()
-        {
-            SetHealth();
-            targetsBehaviour.ResetTargets();
-        }
-        
+
 
         #region TroopHealth
 
         public void SetHealth()
         {
             healthBehaviour.SetupCurrentHealth(data.Health);
-        }
-
-        public void GetHealth()
-        {
-            healthBehaviour.GetCurrentHealth();
         }
 
         public void RecieveTargetValue(float damage)
@@ -81,5 +85,7 @@ namespace Game.Scripts.Controllers.Troop
         public void RemoveTargetTroop(TroopControllerBase unit) => targetsBehaviour.RemoveTargetUnit(unit);
 
         #endregion
+
+       
     }
 }

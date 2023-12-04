@@ -5,8 +5,9 @@ namespace Game.Scripts.Managers
 {
     public class LevelManager : MonoBehaviour
     {
-        [SerializeField]private TroopDataList aliveAllyList;
-        [SerializeField]private int experiencePerBattle = 1;
+        [SerializeField] private TroopDataList aliveAllyList;
+        [SerializeField] private int experiencePerBattle = 1;
+
         public void SetExperiences()
         {
             for (var i = 0; i < aliveAllyList.Value.Count; i++)

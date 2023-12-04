@@ -273,10 +273,10 @@ RectTransform:
   - {fileID: 774872170}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1325, y: -300}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84469415
 MonoBehaviour:
@@ -481,10 +481,10 @@ RectTransform:
   - {fileID: 1459395856}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1325, y: -680}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &156322245
 MonoBehaviour:
@@ -665,10 +665,10 @@ RectTransform:
   - {fileID: 167480744}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 625, y: -680}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &174576140
 MonoBehaviour:
@@ -1049,10 +1049,10 @@ RectTransform:
   - {fileID: 1187243088}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -680}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370647932
 MonoBehaviour:
@@ -1196,7 +1196,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1904706169}
-        m_TargetAssemblyTypeName: Game.Scripts.TeamController, RPGScripts
+        m_TargetAssemblyTypeName: Game.Scripts.Managers.TeamManager, RPGScripts
         m_MethodName: RemoveAllAliveTroops
         m_Mode: 1
         m_Arguments:
@@ -1247,7 +1247,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1904706169}
-        m_TargetAssemblyTypeName: Game.Scripts.TeamController, RPGScripts
+        m_TargetAssemblyTypeName: Game.Scripts.Managers.TeamManager, RPGScripts
         m_MethodName: RemoveAllAliveTroops
         m_Mode: 1
         m_Arguments:
@@ -1585,10 +1585,10 @@ RectTransform:
   - {fileID: 491006305}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 275, y: -300}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561929668
 MonoBehaviour:
@@ -1838,10 +1838,10 @@ RectTransform:
   - {fileID: 1647207789}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 975, y: -300}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713800528
 MonoBehaviour:
@@ -2213,6 +2213,7 @@ Transform:
   m_Children:
   - {fileID: 24432608}
   - {fileID: 1519392716}
+  - {fileID: 1696575315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &839395289
@@ -2480,10 +2481,10 @@ RectTransform:
   - {fileID: 1575091722}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1675, y: -680}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &900378788
 MonoBehaviour:
@@ -2500,7 +2501,7 @@ MonoBehaviour:
   troopData: {fileID: 11400000, guid: a169ed271d49ebe4f916de60e94a6743, type: 2}
   infoPopUpBehaviour: {fileID: 557186501}
   popUpWaitBehaviour: {fileID: 684853749}
-  Outline: {fileID: 156322246}
+  Outline: {fileID: 900378789}
 --- !u!114 &900378789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2652,7 +2653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &959839376
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2679,7 +2680,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959839375}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2837,10 +2838,10 @@ RectTransform:
   - {fileID: 2014684835}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 625, y: -300}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &980048589
 MonoBehaviour:
@@ -2946,10 +2947,10 @@ RectTransform:
   - {fileID: 1527967575}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 975, y: -680}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004366648
 MonoBehaviour:
@@ -3517,7 +3518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1163896360
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4898,6 +4899,37 @@ MonoBehaviour:
   - {fileID: 1560337795}
   - {fileID: 1080291601}
   currentState: 0
+--- !u!1 &1696575314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1696575315}
+  m_Layer: 0
+  m_Name: Unseen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1696575315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696575314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 999, y: 999, z: 999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 817774136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1699945709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5142,6 +5174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allyTroops: {fileID: 11400000, guid: 760a5fdca0c6e4d4c868844d5baaef6b, type: 2}
   enemyTroops: {fileID: 11400000, guid: ba71394af43167a41a023ad023ad03e1, type: 2}
+  allAllyTroops: {fileID: 11400000, guid: 9911deb9670d3e94d838f50937264a7d, type: 2}
   AllyPositions:
   - {fileID: 2127918894}
   - {fileID: 1969326797}
@@ -5155,6 +5188,7 @@ MonoBehaviour:
   - {fileID: 1104229246}
   EnemyPositions:
   - {fileID: 1551967074}
+  unseenTransform: {fileID: 1696575315}
 --- !u!4 &1904706170
 Transform:
   m_ObjectHideFlags: 0
@@ -5370,10 +5404,10 @@ RectTransform:
   - {fileID: 1138004651}
   m_Father: {fileID: 1798196168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1675, y: -300}
+  m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998061402
 MonoBehaviour:

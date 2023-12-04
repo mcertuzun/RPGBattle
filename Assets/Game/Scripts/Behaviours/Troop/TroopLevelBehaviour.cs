@@ -7,38 +7,15 @@ namespace Game.Scripts.Behaviours.Troop
     {
         [Header("Level Info")] [SerializeField] [ReadOnly]
         private int Level;
-        [SerializeField] [ReadOnly]
-        private int Experience;
-        
+
         public delegate void LevelChangedEventHandler(int newLevel);
 
         public event LevelChangedEventHandler LevelChangedEvent;
 
-        public void SetupCurrentLevel(int newLevel, int experience)
+        public void SetupCurrentLevel(int dataLevel)
         {
-            Level = newLevel;
-            Experience = experience;
-        }
-
-        public void LevelUp()
-        {
-            this.Level++;
+            Level = dataLevel;
             LevelChangedEvent?.Invoke(Level);
-        }
-        
-        public void GainExperience(int exp)
-        {
-            Experience += exp;
-            if (Experience >= 5)
-            {
-                LevelUp();
-                Experience -= 5;
-            }
-        }
-
-        public int GetCurrentLevel()
-        {
-            return Level;
         }
     }
 }

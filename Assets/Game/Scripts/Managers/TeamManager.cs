@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Game.Scripts.Controllers.Troop;
 using Game.Scripts.Data;
 using UnityEngine;
@@ -10,80 +11,102 @@ namespace Game.Scripts.Managers
     public class TeamManager : MonoBehaviour
     {
         private Dictionary<TeamType, List<TroopControllerBase>> aliveTroops;
-        [Header("Data")] [SerializeField] private TroopDataList allyTroops, enemyTroops;
+        private Dictionary<TeamType, List<TroopControllerBase>> createdTroops;
+        [Header("Data")] [SerializeField] private TroopDataList allyTroops, enemyTroops, allAllyTroops;
         [SerializeField] private List<Transform> AllyPositions;
         [SerializeField] private List<Transform> EnemyPositions;
+        [SerializeField] Transform unseenTransform;
         public event Action<int> OnAllyTroopEliminated;
         public event Action<int> OnEnemyTroopEliminated;
 
-        public void Setup()
+        #region Init
+
+        private void Start()
         {
-            CreateAliveTroops();
-            SetAllTeamsTargetTroops();
+            InitTroops();
         }
 
-        public TroopControllerBase GetRandomEnemy()
+        private void InitTroops()
         {
-            var aliveEnemyTroops = aliveTroops[TeamType.Enemy];
-            var randomEnemy = aliveEnemyTroops[Random.Range(0, aliveEnemyTroops.Count)];
-            return randomEnemy;
-        }
-        
-        private void CreateAliveTroops()
-        {
-            InitDictionary();
+            InitDictionary(ref aliveTroops);
+            InitDictionary(ref createdTroops);
             CreateAllTroops();
-            SetTroops();
         }
 
-        private void InitDictionary()
+        private void InitDictionary(ref Dictionary<TeamType, List<TroopControllerBase>> dictionary)
         {
-            aliveTroops ??= new();
-            aliveTroops.Add(TeamType.Ally, new List<TroopControllerBase>());
-            aliveTroops.Add(TeamType.Enemy, new List<TroopControllerBase>());
+            dictionary ??= new();
+            dictionary.Add(TeamType.Ally, new List<TroopControllerBase>());
+            dictionary.Add(TeamType.Enemy, new List<TroopControllerBase>());
         }
 
         private void CreateAllTroops()
         {
-            CreateTroops(allyTroops, AllyPositions);
-            CreateTroops(enemyTroops, EnemyPositions);
-        }
-
-        private void CreateTroops(TroopDataList dataList, List<Transform> spawnPositions)
-        {
-            for (var i = 0; i < dataList.Value.Count; i++)
+            for (int i = 0; i < allAllyTroops.Value.Count; i++)
             {
-                var createdTroop = dataList.Value[i].Create(spawnPositions[i]);
-                aliveTroops[dataList.Value[i].teamType].Add(createdTroop);
+                var ally = allAllyTroops.Value[i].Create(unseenTransform);
+                ally.gameObject.SetActive(false);
+                createdTroops[TeamType.Ally].Add(ally);
+            }
+
+            for (int i = 0; i < enemyTroops.Value.Count; i++)
+            {
+                var enemy = enemyTroops.Value[i].Create(unseenTransform);
+                enemy.gameObject.SetActive(false);
+                createdTroops[TeamType.Enemy].Add(enemy);
             }
         }
 
-        private void SetTroops()
+        #endregion
+
+        #region OnBattleStart
+
+        public void Setup()
         {
-            foreach (var teamType in aliveTroops.Keys)
-            {
-                for (int i = 0; i < aliveTroops[teamType].Count; i++)
-                {
-                    aliveTroops[teamType][i].SetHealth();
-                    aliveTroops[teamType][i].TroopDiedEvent += RemoveTroop;
-                }
-            }
+            SetTroopsReady();
         }
 
-        private void SetAllTeamsTargetTroops()
+        private void SetTroopsReady()
         {
-            foreach (var teamType in aliveTroops.Keys)
-            {
-                SetTargets(teamType);
-            }
+            var matchedControllers = createdTroops[TeamType.Ally]
+                .Where(controller => allyTroops.Value.Contains(controller.data)).ToList();
+            aliveTroops[TeamType.Enemy].AddRange(createdTroops[TeamType.Enemy]);
+            aliveTroops[TeamType.Ally].AddRange(matchedControllers);
+            SetTroopBehaviours(AllyPositions, TeamType.Ally);
+            SetTroopBehaviours(EnemyPositions, TeamType.Enemy);
         }
 
-        private void SetTargets(TeamType teamType)
+        private void SetTroopBehaviours(List<Transform> spawnPositions, TeamType teamType)
         {
-            for (int i = 0; i < aliveTroops[teamType].Count; i++)
+            for (var i = 0; i < aliveTroops[teamType].Count; i++)
             {
+                aliveTroops[teamType][i].gameObject.SetActive(true);
+                aliveTroops[teamType][i].SetTroopReady(spawnPositions[i]);
                 aliveTroops[teamType][i].AssignTargetTroops(aliveTroops[GetOtherTeam(teamType)]);
+                aliveTroops[teamType][i].TroopDiedEvent += DeActivateTroop;
             }
+        }
+
+        #endregion
+
+        private void DeActivateTroop(TroopControllerBase deadTroop)
+        {
+            TeamType teamType = deadTroop.data.teamType;
+            if (aliveTroops[teamType].Contains(deadTroop))
+            {
+                RemoveTroop(deadTroop);
+                CheckRemainingTeams(teamType, aliveTroops[teamType].Count);
+            }
+        }
+
+        private void RemoveTroop(TroopControllerBase deadTroop)
+        {
+            deadTroop.TroopDiedEvent -= DeActivateTroop;
+            RemoveTroopFromTargets(deadTroop);
+            if (aliveTroops[deadTroop.data.teamType].Contains(deadTroop))
+                aliveTroops[deadTroop.data.teamType].Remove(deadTroop);
+            deadTroop.ResetTroop(unseenTransform);
+            deadTroop.gameObject.SetActive(false);
         }
 
         private void RemoveTroopFromTargets(TroopControllerBase deadTroop)
@@ -95,18 +118,28 @@ namespace Game.Scripts.Managers
             }
         }
 
-        
-        //TODO: DON'T REMOVE JUST RESET! 
-        private void RemoveTroop(TroopControllerBase deadTroop)
+        public void RemoveAllAliveTroops()
         {
-            TeamType teamType = deadTroop.data.teamType;
-            if (aliveTroops[teamType].Contains(deadTroop))
+            Remove(TeamType.Ally);
+            Remove(TeamType.Enemy);
+        }
+
+        private void Remove(TeamType teamType)
+        {
+            if (!aliveTroops.ContainsKey(teamType)) return;
+            for (var i = 0; i < aliveTroops[teamType].Count; i++)
             {
-                KillTroop(deadTroop);
-                CheckRemainingTeams(teamType, aliveTroops[teamType].Count);
+                RemoveTroop(aliveTroops[teamType][i]);
             }
         }
-        
+
+        public TroopControllerBase GetRandomEnemy()
+        {
+            var aliveEnemyTroops = aliveTroops[TeamType.Enemy];
+            var randomEnemy = aliveEnemyTroops[Random.Range(0, aliveEnemyTroops.Count)];
+            return randomEnemy;
+        }
+
         private void CheckRemainingTeams(TeamType teamType, int count)
         {
             if (teamType == TeamType.Ally)
@@ -118,34 +151,10 @@ namespace Game.Scripts.Managers
                 OnEnemyTroopEliminated?.Invoke(count);
             }
         }
-        private void KillTroop(TroopControllerBase deadTroop)
-        {
-            deadTroop.TroopDiedEvent -= RemoveTroop;
-            RemoveTroopFromTargets(deadTroop);
-            aliveTroops[deadTroop.data.teamType].Remove(deadTroop);
-            Destroy(deadTroop.gameObject);
-        }
-
-        public void RemoveAllAliveTroops()
-        {
-            if (!aliveTroops.ContainsKey(TeamType.Ally)) return;
-            for (var i = 0; i < aliveTroops[TeamType.Ally].Count; i++)
-            {
-                KillTroop(aliveTroops[TeamType.Ally][i]);
-            }  
-            if (!aliveTroops.ContainsKey(TeamType.Enemy)) return;
-            for (var i = 0; i < aliveTroops[TeamType.Enemy].Count; i++)
-            {
-                KillTroop(aliveTroops[TeamType.Enemy][i]);
-            }
-            
-            aliveTroops.Clear();
-        }
 
         private static TeamType GetOtherTeam(TeamType teamType)
         {
             return teamType == TeamType.Ally ? TeamType.Enemy : TeamType.Ally;
         }
-        
     }
 }

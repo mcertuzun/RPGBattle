@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using Game.Scripts.Utilities.Pooling;
 using TMPro;
 using UnityEngine;
 
@@ -8,12 +7,12 @@ namespace Game.Scripts.Behaviours.UI
     public class UITextBehaviour : MonoBehaviour
     {
         [Header("Component Reference")] public TextMeshProUGUI textDisplay;
+
         public void SetText(string newText)
         {
             textDisplay.SetText(newText);
         }
 
-      
         public void AlertText()
         {
             PlayAlertTween();
@@ -26,6 +25,5 @@ namespace Game.Scripts.Behaviours.UI
             textDisplay.DOColor(Color.red, 0.5f).OnComplete(() => { textDisplay.DOColor(originalColor, 0.5f); });
             textDisplay.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.5f, 1);
         }
-     
     }
 }

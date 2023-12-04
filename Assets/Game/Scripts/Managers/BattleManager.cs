@@ -7,7 +7,9 @@ namespace Game.Scripts.Managers
 {
     public class BattleManager : MonoBehaviour
     {
-        [FormerlySerializedAs("teamController")] [SerializeField] private TeamManager teamManager;
+        [FormerlySerializedAs("teamController")] [SerializeField]
+        private TeamManager teamManager;
+
         [SerializeField] private ObjectiveController objectiveController;
 
         public int battleRound

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Scripts.Utilities.Pooling
+namespace Game.Scripts.Utilities.Pooling.Core
 {
     [CreateAssetMenu(fileName = "PoolInfo", menuName = "Scriptables/Pooling/PoolInfo")]
     [System.Serializable]

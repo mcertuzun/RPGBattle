@@ -23,7 +23,7 @@ namespace Game.Scripts.Behaviours.UI.TroopSelection
                             $"Level: {popUpData.Level}\n" +
                             $"Attack Power: {popUpData.AttackPower}\n" +
                             $"Experience: {popUpData.Experience}";
-         
+
             PopUp.SetActive(isOpened);
         }
 

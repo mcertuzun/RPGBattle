@@ -11,13 +11,6 @@ namespace Game.Scripts.Behaviours.UI
 
         private void OnEnable() => LevelBehaviour.LevelChangedEvent += UpdateLevel;
         private void OnDisable() => LevelBehaviour.LevelChangedEvent -= UpdateLevel;
-        private void Start() => SetupLevel();
-
-        private void SetupLevel()
-        {
-            var currentLevel = LevelBehaviour.GetCurrentLevel();
-            UpdateLevel(currentLevel);
-        }
 
         private void UpdateLevel(int newLevel)
         {

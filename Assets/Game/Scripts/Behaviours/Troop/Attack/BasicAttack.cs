@@ -1,8 +1,7 @@
-using Assets.Library.Pooling;
 using DG.Tweening;
 using Game.Scripts.Controllers.Troop;
 using Game.Scripts.Data;
-using Game.Scripts.Utilities.Pooling;
+using Game.Scripts.Utilities.Pooling.Core;
 using Game.Scripts.Utilities.UI;
 using UnityEngine;
 

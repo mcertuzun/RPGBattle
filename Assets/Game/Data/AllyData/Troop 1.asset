@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Troop1
   Health: 100
   AttackPower: 10
-  Experience: 1
-  Level: 0
+  Experience: 0
+  Level: 4
   teamType: 0
   troopPrefab: {fileID: 3492936288454573590, guid: 79e041945793fb14e869a63642f59def, type: 3}

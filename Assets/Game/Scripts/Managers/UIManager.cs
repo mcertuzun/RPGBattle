@@ -17,6 +17,7 @@ namespace Game.Scripts.Managers
         {
             uiStateController.SetState((int)UIState.SelectTroopsUI);
         }
+
         public void OnVictory()
         {
             uiStateController.SetState((int)UIState.VictoryUI);
@@ -32,7 +33,7 @@ namespace Game.Scripts.Managers
             SetAllyData();
             uiStateController.SetState((int)UIState.InGameUI);
         }
-        
+
         private void SetAllyData()
         {
             allyTroops.Value.Clear();

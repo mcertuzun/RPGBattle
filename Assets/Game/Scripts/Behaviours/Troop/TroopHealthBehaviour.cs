@@ -21,6 +21,7 @@ namespace Game.Scripts.Behaviours.Troop
         public void SetupCurrentHealth(float totalHealth)
         {
             currentHealth = totalHealth;
+            HealthChangedEvent?.Invoke(currentHealth);
         }
 
         public void ChangeHealth(float healthDifference)

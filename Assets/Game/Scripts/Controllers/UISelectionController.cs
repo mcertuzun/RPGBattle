@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Game.Scripts.Behaviours.UI;
 using Game.Scripts.Behaviours.UI.TroopSelection;
 using Game.Scripts.Utilities.ReadOnlyDrawer;
@@ -31,7 +30,7 @@ namespace Game.Scripts.Controllers
 
         [ReadOnly] [SerializeField] private int _troopSelectionCount;
         public UnityEvent OnClickEvent;
-        
+
         public void OnBattleCountChanged(int val)
         {
             if (val % 5 == 0)
@@ -84,7 +83,7 @@ namespace Game.Scripts.Controllers
         {
             textBehaviour.SetText($"({selectedUITroops.Count}/{troopSelectionCount})");
         }
-        
+
         private void Awake()
         {
             StartListen();
@@ -102,6 +101,7 @@ namespace Game.Scripts.Controllers
                 UITroops[i].TroopSelectEvent -= OnUITroopSelection;
             }
         }
+
         private void StartListen()
         {
             for (var i = 0; i < UITroops.Count; i++)
@@ -109,6 +109,5 @@ namespace Game.Scripts.Controllers
                 UITroops[i].TroopSelectEvent += OnUITroopSelection;
             }
         }
-
     }
 }

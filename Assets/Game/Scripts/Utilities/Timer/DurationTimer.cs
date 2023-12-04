@@ -1,8 +1,7 @@
 ﻿using System;
-using Game.Scripts.Utilities.Timer;
 using UnityEngine;
 
-namespace Game.Scripts.Timer
+namespace Game.Scripts.Utilities.Timer
 {
     [Serializable]
     public class DurationTimer

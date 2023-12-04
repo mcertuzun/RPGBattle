@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Game.Scripts.Utilities.Pooling;
+﻿using Game.Scripts.Utilities.Pooling.Core;
 using UnityEngine;
 
-namespace Assets.Library.Pooling
+namespace Game.Scripts.Utilities.Pooling.Examples
 {
     [RequireComponent(typeof(ParticleSystem))]
     public class ParticlePoolObject : MonoBehaviour, IPoolObject

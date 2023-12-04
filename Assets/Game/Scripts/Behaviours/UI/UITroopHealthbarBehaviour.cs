@@ -11,17 +11,10 @@ namespace Game.Scripts.Behaviours.UI
 
         private void OnEnable() => healthBehaviour.HealthChangedEvent += UpdateHealthDisplay;
         private void OnDisable() => healthBehaviour.HealthChangedEvent -= UpdateHealthDisplay;
-        private void Start() => SetupHealthDisplay();
-
-        private void SetupHealthDisplay()
-        {
-            float totalHealth = healthBehaviour.GetCurrentHealth();
-            healthSlider.SetupDisplay(totalHealth);
-            UpdateHealthDisplay(totalHealth);
-        }
 
         private void UpdateHealthDisplay(float newHealthAmount)
         {
+            healthSlider.SetupDisplay(newHealthAmount);
             healthSlider.SetCurrentValue(newHealthAmount);
         }
     }
