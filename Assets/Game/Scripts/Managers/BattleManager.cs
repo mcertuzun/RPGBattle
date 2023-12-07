@@ -9,9 +9,7 @@ namespace Game.Scripts.Managers
     {
         [FormerlySerializedAs("teamController")] [SerializeField]
         private TeamManager teamManager;
-
-        [SerializeField] private ObjectiveController objectiveController;
-
+        
         public int battleRound
         {
             get
@@ -29,9 +27,7 @@ namespace Game.Scripts.Managers
         private int _battleRound;
 
         [Header("Events")] public UnityEvent<int> OnNextBattle;
-        public UnityEvent OnStartBattle;
-        public UnityEvent OnStopBattle;
-
+   
         //TODO: Just create AIController
         [Header("AI Settings")] public TeamType currentTeamType = TeamType.Ally;
         public AttackSignals attackSignals;
@@ -59,11 +55,12 @@ namespace Game.Scripts.Managers
 
         public void OnBattleEnd()
         {
-        }
-
-        public void NextBattle()
-        {
             battleRound++;
+            OnNextBattle?.Invoke(battleRound);
+        }
+        public void OnResetBattle()
+        {
+            battleRound = 0;
             OnNextBattle?.Invoke(battleRound);
         }
 

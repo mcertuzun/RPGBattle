@@ -11,6 +11,7 @@ namespace Game.Scripts.Behaviours.Troop.Attack
     {
         public AttackSignals attackSignals;
         [Header("Data")] public PoolInfo damageFly;
+
         public void To(TroopControllerBase target, float damage)
         {
             transform.DOJump(target.transform.position, 1f, 1, 1f)
@@ -18,7 +19,8 @@ namespace Game.Scripts.Behaviours.Troop.Attack
                 {
                     target.RecieveTargetValue(damage);
                     attackSignals.TriggerEnd(target.data.teamType == TeamType.Ally);
-                    PoolManager.Fetch(damageFly.PoolName, transform.position, true).GetComponent<FlyingText>().PlayFlyTween(damage.ToString());
+                    PoolManager.Fetch(damageFly.PoolName, transform.position, true).GetComponent<FlyingText>()
+                        .PlayFlyTween(damage.ToString("0.0"));
                     GetComponent<PoolObject>().Release();
                 });
         }

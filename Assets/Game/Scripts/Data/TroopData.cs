@@ -15,7 +15,6 @@ namespace Game.Scripts.Data
         public TeamType teamType;
         public GameObject troopPrefab;
 
-        public event Action<int> OnLevelUp;
         public TroopControllerBase Create(Transform troopPosition)
         {
             var troop = Instantiate(troopPrefab, troopPosition.position, Quaternion.identity, troopPosition)

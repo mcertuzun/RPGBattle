@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Game.Scripts.Utilities.Pooling.Editor
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(PoolInfo))]
     public class PoolInfoEditor : UnityEditor.Editor
     {
@@ -25,4 +26,5 @@ namespace Game.Scripts.Utilities.Pooling.Editor
 
         }
     }
+#endif
 }

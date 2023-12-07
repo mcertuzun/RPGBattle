@@ -9,13 +9,23 @@ namespace Game.Scripts.Behaviours.UI
 
         [Header("UI References")] public UIImageBehaviour healthSlider;
 
-        private void OnEnable() => healthBehaviour.HealthChangedEvent += UpdateHealthDisplay;
-        private void OnDisable() => healthBehaviour.HealthChangedEvent -= UpdateHealthDisplay;
+        private void OnEnable()
+        {
+            healthBehaviour.HealthChangedEvent += UpdateHealthDisplay;
+            healthBehaviour.HealthSetup += SetupHealth;
+        }
+
+        private void OnDisable()
+        {
+            healthBehaviour.HealthChangedEvent -= UpdateHealthDisplay;
+            healthBehaviour.HealthSetup -= SetupHealth;
+        }
+
+        public void SetupHealth(float newHealthAmount) => healthSlider.SetHealth(newHealthAmount);
 
         private void UpdateHealthDisplay(float newHealthAmount)
         {
-            healthSlider.SetupDisplay(newHealthAmount);
-            healthSlider.SetCurrentValue(newHealthAmount);
+            healthSlider.UpdateDisplay(newHealthAmount);
         }
     }
 }

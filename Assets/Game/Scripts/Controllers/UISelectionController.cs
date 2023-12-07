@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Game.Scripts.Behaviours.UI;
 using Game.Scripts.Behaviours.UI.TroopSelection;
-using Game.Scripts.Utilities.ReadOnlyDrawer;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -28,7 +27,7 @@ namespace Game.Scripts.Controllers
             }
         }
 
-        [ReadOnly] [SerializeField] private int _troopSelectionCount;
+        [SerializeField] private int _troopSelectionCount;
         public UnityEvent OnClickEvent;
 
         public void OnBattleCountChanged(int val)
@@ -77,6 +76,16 @@ namespace Game.Scripts.Controllers
             {
                 OnClickEvent?.Invoke();
             }
+        }
+
+        public void ResetSelections()
+        {
+            for (var i = 0; i < UITroops.Count; i++)
+            {
+                UITroops[i].isSelected = false;
+             
+            }
+            selectedUITroops.Clear();
         }
 
         private void SetCounter()

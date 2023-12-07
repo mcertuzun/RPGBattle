@@ -9,29 +9,16 @@ namespace Game.Scripts.Behaviours.UI
         public UITextBehaviour textSliderDisplay;
         private int maxHealth;
 
-        public void SetupDisplay(float totalValue)
+        public void SetHealth(float newHealth)
         {
-            SetMaxValue(totalValue);
+            maxHealth = (int)newHealth;
+            UpdateDisplay(newHealth);
         }
 
-        void SetMaxValue(float newValue)
+        public void UpdateDisplay(float newHealth)
         {
-            slider.fillAmount = newValue;
-            maxHealth = (int)newValue;
-        }
-
-        public void SetCurrentValue(float newValue)
-        {
-            slider.fillAmount = newValue / 100;
-            SetTextDisplay();
-        }
-
-        private void SetTextDisplay()
-        {
-            if (textSliderDisplay != null)
-            {
-                textSliderDisplay.SetText(maxHealth.ToString());
-            }
+            slider.fillAmount = newHealth / maxHealth;
+            textSliderDisplay.SetText(newHealth.ToString("0.0"));
         }
     }
 }

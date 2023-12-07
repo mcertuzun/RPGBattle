@@ -22,6 +22,7 @@ namespace Game.Scripts.Utilities.UI
         InGameUI = 0,
         VictoryUI,
         DefeatUI,
-        SelectTroopsUI
+        SelectTroopsUI,
+        CheatUI
     }
 }

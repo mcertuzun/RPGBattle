@@ -26,14 +26,7 @@ namespace Game.Scripts.Controllers.Troop
 
         public event UnitDiedEventHandler TroopDiedEvent;
         [Header("Debug")] public bool initializeOnStart;
-
-        private void Start()
-        {
-            if (initializeOnStart)
-            {
-                SetHealth();
-            }
-        }
+        
         public void SetTroopReady(Transform spawnTransform)
         {
             transform.position = spawnTransform.position;
@@ -59,11 +52,7 @@ namespace Game.Scripts.Controllers.Troop
 
         #region TroopHealth
 
-        public void SetHealth()
-        {
-            healthBehaviour.SetupCurrentHealth(data.Health);
-        }
-
+  
         public void RecieveTargetValue(float damage)
         {
             if (healthBehaviour.unitIsAlive)

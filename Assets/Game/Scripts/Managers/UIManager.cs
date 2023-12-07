@@ -34,6 +34,10 @@ namespace Game.Scripts.Managers
             uiStateController.SetState((int)UIState.InGameUI);
         }
 
+        public void OnCheat()
+        {
+            uiStateController.SetState((int)UIState.CheatUI);
+        }
         private void SetAllyData()
         {
             allyTroops.Value.Clear();
